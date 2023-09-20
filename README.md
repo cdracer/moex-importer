@@ -12,7 +12,7 @@ The package allows to get quotes and data from [MOEX ISS](https://iss.moex.com/i
 ## Installation
 Install `moeximporter`:
 
-`$ pip install moex-importer`
+`$ pip install moeximporter`
 
 ## Requirements
 - pandas

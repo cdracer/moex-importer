@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = '0.0.3' 
+VERSION = '0.0.4' 
 DESCRIPTION = 'MOEX Importer package'
 
 this_directory = Path(__file__).parent
@@ -13,7 +13,7 @@ setup(
 	author='Konstantin Novik',
 	author_email='<konstantin.novik@gmail.com>',
 	license='MIT',
-        url='https://github.com/cdracer/moex-importer',
+    url='https://github.com/cdracer/moex-importer',
 	description=DESCRIPTION,
 	long_description=long_description,
  	long_description_content_type='text/markdown',
