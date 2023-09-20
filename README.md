@@ -28,7 +28,7 @@ from moeximporter import MoexImporter, MoexSecurity
 ### Initialization
 Class `MoexImporter` is used for all https-requests to the ISS API. You should create at least one copy of the class to use for data-requests.
 
-You can pass your own http-header to the class-constructor. `_loadinfo` flag allows to get additional data from the exchange during the class initialization. You may use this data to check available *engines* and *markets*. You do not need to set this flag to `True` if you often creates copies of the class to speedup the code. Additional data isn't required for
+You can pass your own http-header to the class-constructor. `_loadinfo` flag allows to get additional data from the exchange during the class initialization. You may use this data to check available *engines* and *markets*. You do not need to set this flag to `True` if you often create copies of the class to speedup the code. Additional data isn't required for
 ```
 # Create an object to access ISS API requests
 mi = MoexImporter()
