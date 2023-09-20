@@ -45,10 +45,10 @@ sec = MoexSecurity('GAZP', mi)
 print(sec)
 
 # Request quotes as a pandas DataFrame
-quotes_df = security.getHistoryQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20))
+quotes_df = sec.getHistoryQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20))
 
 # Request quotes as an array of dicts
-quotes_arr = security.getHistoryQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20))
+quotes_arr = sec.getHistoryQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20))
 
 ```
 ## Licensing
