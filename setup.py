@@ -18,8 +18,8 @@ setup(
 	keywords=['python', 'MOEX', 'MOEX quotes', 'finance'],
 	classifiers= [
 		'License :: OSI Approved :: MIT License',
-		'Development Status :: 3 - Alpha',
-		'Intended Audience :: Finance',
+		'Development Status :: 4 - Beta',
+		'Intended Audience :: Financial and Insurance Industry',
 		'Programming Language :: Python :: 3',
 		'Operating System :: MacOS :: MacOS X',
 		'Operating System :: Microsoft :: Windows',
