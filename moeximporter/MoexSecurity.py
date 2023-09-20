@@ -106,6 +106,6 @@ Security {self.seccode:s}
 Main board: {self.mainboard:s} ({self.boards[self.mainboard]["title"]})
 Engine: {self.boards[self.mainboard]["engine"]}
 Market: {self.boards[self.mainboard]["market"]}
-History from {self.boards[self.mainboard]["dtfrom"]} till {self.boards[self.mainboard]["dttill"]}
+History for the main board is available from {self.boards[self.mainboard]["dtfrom"]} till {self.boards[self.mainboard]["dttill"]}
 '''
         return _res
