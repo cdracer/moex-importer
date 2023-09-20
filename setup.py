@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1' 
+VERSION = '0.0.2' 
 DESCRIPTION = 'MOEX Importer package'
 LONG_DESCRIPTION = 'Import quotes and data from MOEX ISS API'
 
@@ -10,6 +10,7 @@ setup(
 	author='Konstantin Novik',
 	author_email='<konstantin.novik@gmail.com>',
 	license='MIT',
+        url='https://github.com/cdracer/moex-importer',
 	description=DESCRIPTION,
 	long_description=LONG_DESCRIPTION,
 	packages=find_packages(),
