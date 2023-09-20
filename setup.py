@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
+from pathlib import Path
 
-VERSION = '0.0.2' 
+VERSION = '0.0.3' 
 DESCRIPTION = 'MOEX Importer package'
-LONG_DESCRIPTION = 'Import quotes and data from MOEX ISS API'
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
 	name='moeximporter', 
@@ -12,7 +15,8 @@ setup(
 	license='MIT',
         url='https://github.com/cdracer/moex-importer',
 	description=DESCRIPTION,
-	long_description=LONG_DESCRIPTION,
+	long_description=long_description,
+ 	long_description_content_type='text/markdown',
 	packages=find_packages(),
 	install_requires=['pandas', ],
 	readme='README.md',
