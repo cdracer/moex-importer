@@ -20,6 +20,7 @@ class MoexImporter:
         ):
         self.base_url = 'https://iss.moex.com/iss'
         self.base_header = _header
+        self.limit = 100
         self.base_values = {
             'iss.meta': 'off',
             'iss.json': 'extended',
@@ -37,6 +38,42 @@ class MoexImporter:
                 ],
                 'params': {},
             },
+            MoexRequests.GetSecuritiesAll: {
+                'postfix': '/securities.json',
+                'postfix_params': [],
+                'params': {
+                    'start': 'd',
+                    'is_trading': 's',
+                },
+            },
+            MoexRequests.GetSecuritiesForEngine: {
+                'postfix': '/securities.json',
+                'postfix_params': [],
+                'params': {
+                    'start': 'd',
+                    'is_trading': 's',
+                    'engine': 's',
+                },
+            },
+            MoexRequests.GetSecuritiesForMarket: {
+                'postfix': '/securities.json',
+                'postfix_params': [],
+                'params': {
+                    'start': 'd',
+                    'is_trading': 's',
+                    'engine': 's',
+                    'market': 's',
+                },
+            },
+            MoexRequests.GetSecuritiesSearch: {
+                'postfix': '/securities.json',
+                'postfix_params': [],
+                'params': {
+                    'start': 'd',
+                    'is_trading': 's',
+                    'q': 's',
+                },
+            },
             MoexRequests.GetSecurity: {
                 'postfix': '/securities/__SECCODE__.json',
                 'postfix_params': [
@@ -46,7 +83,6 @@ class MoexImporter:
             },
             MoexRequests.GetHistoryQuotes: {
                 'postfix': '/history/engines/__ENGINE__/markets/__MARKET__/boards/__BOARD__/securities/__SECCODE__.json',
-                #'postfix': '/history/engines/__ENGINE__/markets/__MARKET__/securities/__SECCODE__.json',
                 'postfix_params': [
                     '__ENGINE__',
                     '__MARKET__',
@@ -98,7 +134,7 @@ class MoexImporter:
                 print('_MoexRequest(): Error ', e.reason)
             else:
                 _res = json.load(_resp)
-            if _resp is not None:
+            if _resp:
                 _resp.close()
         except Exception as e:
             print('MoexImporter::_MoexRequest(): ', e, file=sys.stderr)
@@ -148,6 +184,159 @@ class MoexImporter:
             print('MoexImporter::getSecurity(): ', e, file=sys.stderr)
         return _res
     
+    def _getSecurities(self, _is_trading='', _engine=None, _market=None, _query = None):
+        _res = None
+        _params = {
+            'start': 0,
+            'is_trading': _is_trading,
+        }
+        _type = MoexRequests.GetSecuritiesAll
+        if _engine:
+            _type = MoexRequests.GetSecuritiesForEngine
+            _params['engine'] = _engine
+            if _market:
+                _type = MoexRequests.GetSecuritiesForMarket
+                _params['market'] = _market
+        if _query:
+            _type = MoexRequests.GetSecuritiesSearch
+            _params['q'] = _query
+        try:
+            isNext = True
+            while isNext:
+                isNext = False
+                _tmp = self._MoexRequest(
+                    _type,
+                    _params = _params
+                )
+                for _ti in _tmp:
+                    if 'securities' in _ti:
+                        if _ti['securities']:
+                            if not _res:
+                                _res = []
+                                
+                            _res += [
+                                {
+                                    _k:_sq[_k]
+                                    for _k in _sq
+                                    if _k in ['secid', 'shortname', 'name', 'regnumber', 'isin', 'is_traded', 'emitent_id', 'emitent_title', 'emitent_inn', 'gosreg', 'primary_boardid']
+                                } for _sq in _ti['securities']
+                            ]
+                            _params['start'] += self.limit
+                            if len(_ti['securities']) == self.limit:
+                                isNext = True
+                    
+        except Exception as e:
+            print('MoexImporter::_getSecurities(): ', e, file=sys.stderr)
+        return _res
+
+    def searchForSecurity(self, _secpart):
+        _res = None
+        try:
+            if isinstance(_secpart, str):
+                _res = self._getSecurities(_query=_secpart)
+            else:
+                print('MoexImporter::searchForSecurity(): _secpart should be str', file=sys.stderr)
+        except Exception as e:
+            print('MoexImporter::searchForSecurity(): ', e, file=sys.stderr)
+        return _res
+    
+    def searchForSecurityTraded(self, _secpart):
+        _res = None
+        try:
+            if isinstance(_secpart, str):
+                _res = self._getSecurities(_is_trading='1', _query=_secpart)
+            else:
+                print('MoexImporter::searchForSecurityTraded(): _secpart should be str', file=sys.stderr)
+        except Exception as e:
+            print('MoexImporter::searchForSecurityTraded(): ', e, file=sys.stderr)
+        return _res
+    
+    def searchForSecurityNonTraded(self, _secpart):
+        _res = None
+        try:
+            if isinstance(_secpart, str):
+                _res = self._getSecurities(_is_trading='0', _query=_secpart)
+            else:
+                print('MoexImporter::searchForSecurityNonTraded(): _secpart should be str', file=sys.stderr)
+        except Exception as e:
+            print('MoexImporter::searchForSecurityNonTraded(): ', e, file=sys.stderr)
+        return _res
+    
+    def getSecuritiesAll(self):
+        _res = None
+        try:
+            _res = self._getSecurities()
+        except Exception as e:
+            print('MoexImporter::getSecuritiesAll(): ', e, file=sys.stderr)
+        return _res
+    
+    def getSecuritiesAllTraded(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='1')
+        except Exception as e:
+            print('MoexImporter::getSecuritiesAllTraded(): ', e, file=sys.stderr)
+        return _res
+    
+    def getSecuritiesAllNonTraded(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='0')
+        except Exception as e:
+            print('MoexImporter::getSecuritiesAllNonTraded(): ', e, file=sys.stderr)
+        return _res
+    
+    def getBondsAll(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='', _engine='stock', _market = 'bonds')
+            #_res += self._getSecurities(_is_trading='', _engine='state', _market = 'bonds')
+        except Exception as e:
+            print('MoexImporter::getAllBonds(): ', e, file=sys.stderr)
+        return _res
+    
+    def getBondsAllTraded(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='1', _engine='stock', _market = 'bonds')
+            #_res += self._getSecurities(_is_trading='1', _engine='state', _market = 'bonds')
+        except Exception as e:
+            print('MoexImporter::getAllBondsTraded(): ', e, file=sys.stderr)
+        return _res
+
+    def getBondsAllNonTraded(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='0', _engine='stock', _market = 'bonds')
+            #_res += self._getSecurities(_is_trading='0', _engine='state', _market = 'bonds')
+        except Exception as e:
+            print('MoexImporter::getAllBondsNonTraded(): ', e, file=sys.stderr)
+        return _res
+    
+    def getSharesAll(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='', _engine='stock', _market = 'shares')
+        except Exception as e:
+            print('MoexImporter::getAllShares(): ', e, file=sys.stderr)
+        return _res
+    
+    def getSharesAllTraded(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='1', _engine='stock', _market = 'shares')
+        except Exception as e:
+            print('MoexImporter::getAllSharesTraded(): ', e, file=sys.stderr)
+        return _res
+
+    def getSharesAllNonTraded(self):
+        _res = None
+        try:
+            _res = self._getSecurities(_is_trading='0', _engine='stock', _market = 'shares')
+        except Exception as e:
+            print('MoexImporter::getAllSharesNonTraded(): ', e, file=sys.stderr)
+        return _res
+    
     def getHistoryQuotes(self, _engine, _market, _board, _seccode, _from, _till, _tsession, _start):
         _res = None
         try:
@@ -164,114 +353,9 @@ class MoexImporter:
                     'till': _till,
                     'tradingsession': _tsession,
                     'start': _start,
-                    'limit': 100,
+                    'limit': self.limit,
                 }
             )
         except Exception as e:
             print('MoexImporter::getHistoryQuotes(): ', e, file=sys.stderr)
-        return _res
-
-class MoexSecurity:
-    def __init__(self, _seccode, _mi):
-        self.seccode = _seccode
-        self.shortname = None
-        self.mainboard = None
-        self.facecurrency = None
-        self.facevalue = None
-        self.mi = _mi
-        self.boards = {}
-        if isinstance(_mi, MoexImporter):
-            _tmp = _mi.getSecurity(_seccode)
-            for _ti in _tmp:
-                if 'description' in _ti:
-                    _sd = _ti['description']
-                    for _si in _sd:
-                        if _si['name'] == 'SHORTNAME':
-                            self.shortname = _si['value']
-                        if _si['name'] == 'FACEVALUE':
-                            self.facevalue = _si['value']
-                        if _si['name'] == 'FACEUNIT':
-                            self.facecurrency = _si['value']
-                if 'boards' in _ti:
-                    _sb = _ti['boards']
-                    for _bi in _sb:
-                        _dtf = None
-                        if _bi['history_from']:
-                            _dtf = datetime.strptime(_bi['history_from'], '%Y-%m-%d').date()
-                        _dtt = None
-                        if _bi['history_till']:
-                            _dtt = datetime.strptime(_bi['history_till'], '%Y-%m-%d').date()
-                        self.boards[_bi['boardid']] = {
-                            'dtfrom': _dtf,
-                            'dttill': _dtt,
-                            'engine': _bi['engine'],
-                            'market': _bi['market'],
-                            'title': _bi['title']
-                        }
-                        if _bi['is_primary'] == 1:
-                            self.mainboard = _bi['boardid']
-        else:
-            print('MoexSecurity::__init__(): must be initialized with MoexImporter object.', file=sys.stderr)
-            
-    def getHistoryQuotesAsDataFrame(self, _dtf, _dtt, _board = None, _ts = MoexSessions.MainSession):
-        _res = None
-        try:
-            _tmp = self.getHistoryQuotesAsArray(_dtf=_dtf, _dtt=_dtt, _board=_board, _ts=_ts)
-            _res = pd.DataFrame.from_dict(data=_tmp, )
-            _res.set_index(['TRADEDATE',], inplace=True)
-            _res.sort_index(inplace=True)
-        except Exception as e:
-            print('MoexSecurity::getHistoryQuotesAsDataFrame(): ', e, file=sys.stderr)
-        return _res
-    
-    def getHistoryQuotesAsArray(self, _dtf, _dtt, _board = None, _ts = MoexSessions.MainSession):
-        _res = []
-        if isinstance(self.mi, MoexImporter):
-            _tb = self.mainboard
-            if _board:
-                _tb = _board
-            _rdf = max(_dtf, self.boards[_tb]['dtfrom'])
-            _rdt = min(_dtt, self.boards[_tb]['dttill'])
-            _st = 0
-            _isNext = True
-            try:
-                while _isNext:
-                    _isNext = False
-                    _tmp = self.mi.getHistoryQuotes(
-                        _engine = self.boards[_tb]['engine'],
-                        _market = self.boards[_tb]['market'],
-                        _board = _tb,
-                        _seccode = self.seccode,
-                        _from = _rdf,
-                        _till = _rdt,
-                        _tsession = _ts,
-                        _start = _st,
-                    )
-
-                    for _ti in _tmp:
-                        if 'history' in _ti:
-#                            if _ti['history']:
-                            _thq = [
-                                {
-                                    ('VALUE' if _k =='VOLRUR' else 'QUANTITY' if _k == 'VOLUME' else 'YIELD' if _k == 'YIELDCLOSE' else _k): (datetime.strptime(_sq[_k], '%Y-%m-%d').date() if _k == 'TRADEDATE' else _sq[_k])
-                                    for _k in _sq
-                                    if _k in ['TRADEDATE', 'OPEN', 'HIGH', 'LOW', 'CLOSE', 'YIELD', 'DURATION', 'YIELDCLOSE', 'VOLUME', 'VALUE', 'WAPRICE', 'VOLRUR']
-                                } for _sq in _ti['history']
-                            ]
-                            _st += 100
-                            _res += _thq
-                            if len(_thq) == 100:
-                                _isNext = True
-            except Exception as e:
-                print('MoexSecurity::getHistoryQuotes(): ', e, file=sys.stderr)
-        return _res
-            
-    def __str__(self):
-        _res = f'''
-Security {self.seccode:s}
-Main board: {self.mainboard:s} ({self.boards[self.mainboard]["title"]})
-Engine: {self.boards[self.mainboard]["engine"]}
-Market: {self.boards[self.mainboard]["market"]}
-History from {self.boards[self.mainboard]["dtfrom"]} till {self.boards[self.mainboard]["dttill"]}
-'''
         return _res

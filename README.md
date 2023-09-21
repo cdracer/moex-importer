@@ -32,6 +32,19 @@ You can pass your own http-header to the class-constructor. `_loadinfo` flag all
 ```
 # Create an object to access ISS API requests
 mi = MoexImporter()
+
+# Get all traded securities
+seclist = mi.getSecuritiesAllTraded()
+
+# Get all traded bonds
+seclist = mi.getBondsAllTraded()
+
+# Get all traded shares
+seclist = mi.getSharesAllTraded()
+
+# Search for traded security
+seclist = mi.searchForSecurityTraded('ОФЗ')
+
 ```
 
 ### Working with securities

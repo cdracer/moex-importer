@@ -1,4 +1,3 @@
-
 import sys
 import pandas as pd
 from datetime import datetime
@@ -92,9 +91,9 @@ class MoexSecurity:
                                     if _k in ['TRADEDATE', 'OPEN', 'HIGH', 'LOW', 'CLOSE', 'YIELD', 'DURATION', 'YIELDCLOSE', 'VOLUME', 'VALUE', 'WAPRICE', 'VOLRUR']
                                 } for _sq in _ti['history']
                             ]
-                            _st += 100
+                            _st += self.mi.limit
                             _res += _thq
-                            if len(_thq) == 100:
+                            if len(_thq) == self.mi.limit:
                                 _isNext = True
             except Exception as e:
                 print('MoexSecurity::getHistoryQuotes(): ', e, file=sys.stderr)
