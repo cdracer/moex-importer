@@ -69,13 +69,24 @@
 
                         <label class="view-source-button" for="mod-MoexSessions-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">3</span></a><span class="k">class</span> <span class="nc">MoexSessions</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">4</span></a>    <span class="n">MorningSession</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos">5</span></a>    <span class="n">MainSession</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos">6</span></a>    <span class="n">EveningSession</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos">7</span></a>    <span class="n">TotalSessions</span> <span class="o">=</span> <span class="mi">3</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="k">class</span> <span class="nc">MoexSessions</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for MOEX sessions. Not applicable to all instruments.</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>    <span class="n">MorningSession</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Morning trading session.</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>    <span class="n">MainSession</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main trading session.</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="n">EveningSession</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Evening tradning session.</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="n">TotalSessions</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Data for all sessions.</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span></pre></div>
 
 
@@ -91,15 +102,26 @@
 
     </div>
     <a class="headerlink" href="#MoexSessions"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="MoexSessions-4"><a href="#MoexSessions-4"><span class="linenos">4</span></a><span class="k">class</span> <span class="nc">MoexSessions</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
-</span><span id="MoexSessions-5"><a href="#MoexSessions-5"><span class="linenos">5</span></a>    <span class="n">MorningSession</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-</span><span id="MoexSessions-6"><a href="#MoexSessions-6"><span class="linenos">6</span></a>    <span class="n">MainSession</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="MoexSessions-7"><a href="#MoexSessions-7"><span class="linenos">7</span></a>    <span class="n">EveningSession</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-</span><span id="MoexSessions-8"><a href="#MoexSessions-8"><span class="linenos">8</span></a>    <span class="n">TotalSessions</span> <span class="o">=</span> <span class="mi">3</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MoexSessions-4"><a href="#MoexSessions-4"><span class="linenos"> 4</span></a><span class="k">class</span> <span class="nc">MoexSessions</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+</span><span id="MoexSessions-5"><a href="#MoexSessions-5"><span class="linenos"> 5</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Enum for MOEX sessions. Not applicable to all instruments.</span>
+</span><span id="MoexSessions-6"><a href="#MoexSessions-6"><span class="linenos"> 6</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="MoexSessions-7"><a href="#MoexSessions-7"><span class="linenos"> 7</span></a>
+</span><span id="MoexSessions-8"><a href="#MoexSessions-8"><span class="linenos"> 8</span></a>    <span class="n">MorningSession</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span><span id="MoexSessions-9"><a href="#MoexSessions-9"><span class="linenos"> 9</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Morning trading session.</span>
+</span><span id="MoexSessions-10"><a href="#MoexSessions-10"><span class="linenos">10</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="MoexSessions-11"><a href="#MoexSessions-11"><span class="linenos">11</span></a>    <span class="n">MainSession</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="MoexSessions-12"><a href="#MoexSessions-12"><span class="linenos">12</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Main trading session.</span>
+</span><span id="MoexSessions-13"><a href="#MoexSessions-13"><span class="linenos">13</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="MoexSessions-14"><a href="#MoexSessions-14"><span class="linenos">14</span></a>    <span class="n">EveningSession</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+</span><span id="MoexSessions-15"><a href="#MoexSessions-15"><span class="linenos">15</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Evening tradning session.</span>
+</span><span id="MoexSessions-16"><a href="#MoexSessions-16"><span class="linenos">16</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="MoexSessions-17"><a href="#MoexSessions-17"><span class="linenos">17</span></a>    <span class="n">TotalSessions</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="MoexSessions-18"><a href="#MoexSessions-18"><span class="linenos">18</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Data for all sessions.</span>
+</span><span id="MoexSessions-19"><a href="#MoexSessions-19"><span class="linenos">19</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>An enumeration.</p>
+            <div class="docstring"><p>Enum for MOEX sessions. Not applicable to all instruments.</p>
 </div>
 
 
@@ -112,7 +134,9 @@
     </div>
     <a class="headerlink" href="#MoexSessions.MorningSession"></a>
     
-    
+            <div class="docstring"><p>Morning trading session.</p>
+</div>
+
 
                             </div>
                             <div id="MoexSessions.MainSession" class="classattr">
@@ -124,7 +148,9 @@
     </div>
     <a class="headerlink" href="#MoexSessions.MainSession"></a>
     
-    
+            <div class="docstring"><p>Main trading session.</p>
+</div>
+
 
                             </div>
                             <div id="MoexSessions.EveningSession" class="classattr">
@@ -136,7 +162,9 @@
     </div>
     <a class="headerlink" href="#MoexSessions.EveningSession"></a>
     
-    
+            <div class="docstring"><p>Evening tradning session.</p>
+</div>
+
 
                             </div>
                             <div id="MoexSessions.TotalSessions" class="classattr">
@@ -148,7 +176,9 @@
     </div>
     <a class="headerlink" href="#MoexSessions.TotalSessions"></a>
     
-    
+            <div class="docstring"><p>Data for all sessions.</p>
+</div>
+
 
                             </div>
                             <div class="inherited">

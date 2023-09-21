@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 from .MoexImporter import MoexImporter
 from .MoexSessions import MoexSessions
+from .MoexCandlePeriods import MoexCandlePeriods
 
 class MoexSecurity:
     """Class MoexSecurity implements methods to
@@ -11,29 +12,44 @@ class MoexSecurity:
     Instance of MoexImporter should be created
     before.
     """
-    def __init__(self, _seccode, _mi):
+    def __init__(self, seccode, mi):
         """Class constructor initializes base variables
         and loads security-specific information from
         MOEX ISS.
         
         Parameters
         ----------
-        _seccode: str
+        seccode: str
             Security ticker from MOEX.
-        _mi: MoexImporter
+        mi: MoexImporter
             The object of MoexImporter that was
             created before. You can't use the class
             without this object.
         """
-        self.seccode = _seccode
+
+        self.seccode = seccode
+        """Ticker of the security.
+        """
         self.shortname = None
+        """Shortname of the security.
+        """
         self.mainboard = None
+        """Main trading board of the security.
+        """     
         self.facecurrency = None
+        """Facecurrency of the security.
+        """  
         self.facevalue = None
-        self.mi = _mi
+        """Facevalue of the security.
+        """
+        self.mi = mi
+        """MoexImporter object.
+        """
         self.boards = {}
-        if isinstance(_mi, MoexImporter):
-            _tmp = _mi.getSecurity(_seccode)
+        """Boards for the security.
+        """
+        if isinstance(mi, MoexImporter):
+            _tmp = mi.getSecurity(seccode)
             for _ti in _tmp:
                 if 'description' in _ti:
                     _sd = _ti['description']
@@ -65,41 +81,41 @@ class MoexSecurity:
         else:
             print('MoexSecurity::__init__(): must be initialized with MoexImporter object.', file=sys.stderr)
             
-    def getHistoryQuotesAsDataFrame(self, _dtf, _dtt, _board = None, _ts = MoexSessions.MainSession):
+    def getHistoryQuotesAsDataFrame(self, dtfrom, dttill, board = None, ts = MoexSessions.MainSession):
         """Returns quotes for the security as a pandas dataframe.
         
         Parameters
         ----------
-        _dtf: date
+        dtfrom: date
             The left bound of the range to request quotes.
-        _dtt: date
+        dttill: date
             The right bound of the range to request quotes.
-        _board: str, optional
+        board: str, optional
             Request quotes for the specific board. The primary board
             is used if the parameter is ommited. You can check
             class attribute `boards` to get all available boards.
-        _ts: MoexSessions, optional
+        ts: MoexSessions, optional
             Request quotes for the specific session. The main session
             is used if the parameter is ommited.
 
         Returns
         --------
         pd.DataFrame
-            Quotes as pandas dataframe.
-            Columns:
-            'TRADEDATE' - date of the quote,
-            'OPEN' - open price,
-            'HIGH' - high price,
-            'LOW' - low price,
-            'CLOSE' - last price,
-            'YIELD' - yield to maturity, may be None for non-bonds,
-            'DURATION' - duration in days, may be None for non-bonds,
-            'VALUE' - trading value in rubles,
-            'QUANTITY' - trading value in securities.
+            Quotes as pandas dataframe.  
+            Columns:  
+            'TRADEDATE' - date of the quote,  
+            'OPEN' - open price,  
+            'HIGH' - high price,  
+            'LOW' - low price,  
+            'CLOSE' - last price,  
+            'YIELD' - yield to maturity, may be None for non-bonds,  
+            'DURATION' - duration in days, may be None for non-bonds,  
+            'VALUE' - trading value in rubles,  
+            'QUANTITY' - trading value in securities.  
         """
         _res = None
         try:
-            _tmp = self.getHistoryQuotesAsArray(_dtf=_dtf, _dtt=_dtt, _board=_board, _ts=_ts)
+            _tmp = self.getHistoryQuotesAsArray(dtfrom=dtfrom, dttill=dttill, board=board, ts=ts)
             _res = pd.DataFrame.from_dict(data=_tmp, )
             _res.set_index(['TRADEDATE',], inplace=True)
             _res.sort_index(inplace=True)
@@ -107,59 +123,59 @@ class MoexSecurity:
             print('MoexSecurity::getHistoryQuotesAsDataFrame(): ', e, file=sys.stderr)
         return _res
     
-    def getHistoryQuotesAsArray(self, _dtf, _dtt, _board = None, _ts = MoexSessions.MainSession):
+    def getHistoryQuotesAsArray(self, dtfrom, dttill, board = None, ts = MoexSessions.MainSession):
         """Returns quotes for the security as an array of dicts.
         
         Parameters
         ----------
-        _dtf: date
+        dtfrom: date
             The left bound of the range to request quotes.
-        _dtt: date
+        dttill: date
             The right bound of the range to request quotes.
-        _board: str, optional
+        board: str, optional
             Request quotes for the specific board. The primary board
             is used if the parameter is ommited. You can check
             class attribute `boards` to get all available boards.
-        _ts: MoexSessions, optional
+        ts: MoexSessions, optional
             Request quotes for the specific session. The main session
             is used if the parameter is ommited.
 
         Returns
         --------
         array_like
-            Quotes as an array of dicts.
-            Dict keys:
-            'TRADEDATE' - date of the quote,
-            'OPEN' - open price,
-            'HIGH' - high price,
-            'LOW' - low price,
-            'CLOSE' - last price,
-            'YIELD' - yield to maturity, may be None for non-bonds,
-            'DURATION' - duration in days, may be None for non-bonds,
-            'VALUE' - trading value in rubles,
-            'QUANTITY' - trading value in securities.
+            Quotes as an array of dicts.  
+            Dict keys:  
+            'TRADEDATE' - date of the quote,  
+            'OPEN' - open price,  
+            'HIGH' - high price,  
+            'LOW' - low price,  
+            'CLOSE' - last price,  
+            'YIELD' - yield to maturity, may be None for non-bonds,  
+            'DURATION' - duration in days, may be None for non-bonds,  
+            'VALUE' - trading value in rubles,  
+            'QUANTITY' - trading value in securities.  
         """
         _res = []
         if isinstance(self.mi, MoexImporter):
             _tb = self.mainboard
-            if _board:
-                _tb = _board
-            _rdf = max(_dtf, self.boards[_tb]['dtfrom'])
-            _rdt = min(_dtt, self.boards[_tb]['dttill'])
+            if board:
+                _tb = board
+            _rdf = max(dtfrom, self.boards[_tb]['dtfrom'])
+            _rdt = min(dttill, self.boards[_tb]['dttill'])
             _st = 0
             _isNext = True
             try:
                 while _isNext:
                     _isNext = False
                     _tmp = self.mi.getHistoryQuotes(
-                        _engine = self.boards[_tb]['engine'],
-                        _market = self.boards[_tb]['market'],
-                        _board = _tb,
-                        _seccode = self.seccode,
-                        _from = _rdf,
-                        _till = _rdt,
-                        _tsession = _ts,
-                        _start = _st,
+                        engine = self.boards[_tb]['engine'],
+                        market = self.boards[_tb]['market'],
+                        board = _tb,
+                        seccode = self.seccode,
+                        dtfrom = _rdf,
+                        dttill = _rdt,
+                        tsession = ts,
+                        start = _st,
                     )
 
                     for _ti in _tmp:
@@ -177,7 +193,118 @@ class MoexSecurity:
                             if len(_thq) == self.mi.limit:
                                 _isNext = True
             except Exception as e:
-                print('MoexSecurity::getHistoryQuotes(): ', e, file=sys.stderr)
+                print('MoexSecurity::getHistoryQuotesAsArray(): ', e, file=sys.stderr)
+        return _res
+    
+    def getCandleQuotesAsDataFrame(self, dtfrom, dttill, board = None, interval = MoexCandlePeriods.Period1Day):
+        """Returns candles for the security as a pandas dataframe.
+        
+        Parameters
+        ----------
+        dtfrom: date
+            The left bound of the range to request quotes.
+        dttill: date
+            The right bound of the range to request quotes.
+        board: str, optional
+            Request quotes for the specific board. The primary board
+            is used if the parameter is ommited. You can check
+            class attribute `boards` to get all available boards.
+        interval: MoexCandlePeriods, optional
+            Request candles for the specified period. Default is 1 day.
+
+        Returns
+        --------
+        pd.DataFrame
+            Candles as pandas dataframe.
+            Columns:
+            'begin' - begin time of the candle,
+            'end' - end time of the candle,
+            'open' - open price,
+            'high' - high price,
+            'low' - low price,
+            'close' - last price,
+            'value' - trading value in rubles,
+            'quantity' - trading value in securities.
+        """
+        _res = None
+        try:
+            if isinstance(interval, MoexCandlePeriods):
+                _tmp = self.getCandleQuotesAsArray(dtfrom=dtfrom, dttill=dttill, board=board, interval=interval)
+                _res = pd.DataFrame.from_dict(data=_tmp, )
+                _res.set_index(['begin',], inplace=True)
+                _res.sort_index(inplace=True)
+        except Exception as e:
+            print('MoexSecurity::getCandleQuotesAsDataFrame(): ', e, file=sys.stderr)
+        return _res
+    
+    def getCandleQuotesAsArray(self, dtfrom, dttill, board = None, interval = MoexCandlePeriods.Period1Day):
+        """Returns quotes for the security as an array of dicts.
+        
+        Parameters
+        ----------
+        dtfrom: date
+            The left bound of the range to request quotes.
+        dttill: date
+            The right bound of the range to request quotes.
+        board: str, optional
+            Request quotes for the specific board. The primary board
+            is used if the parameter is ommited. You can check
+            class attribute `boards` to get all available boards.
+        interval: MoexCandlePeriods, optional
+            Request candles for the specified period. Default is 1 day.
+
+        Returns
+        --------
+        array_like
+            Candles as an array of dicts.
+            Dict keys:
+            'begin' - begin time of the candle,
+            'end' - end time of the candle,
+            'open' - open price,
+            'high' - high price,
+            'low' - low price,
+            'close' - last price,
+            'value' - trading value in rubles,
+            'quantity' - trading value in securities.
+        """
+        _res = []
+        if isinstance(self.mi, MoexImporter) and isinstance(interval, MoexCandlePeriods):
+            _tb = self.mainboard
+            if board:
+                _tb = board
+            _rdf = max(dtfrom, self.boards[_tb]['dtfrom'])
+            _rdt = min(dttill, self.boards[_tb]['dttill'])
+            _st = 0
+            _isNext = True
+            try:
+                while _isNext:
+                    _isNext = False
+                    _tmp = self.mi.getCandles(
+                        engine = self.boards[_tb]['engine'],
+                        market = self.boards[_tb]['market'],
+                        board = _tb,
+                        seccode = self.seccode,
+                        dtfrom = _rdf,
+                        dttill = _rdt,
+                        candleperiod = interval,
+                        start = _st,
+                    )
+
+                    for _ti in _tmp:
+                        if 'candles' in _ti:
+                            _thq = [
+                                {
+                                    ('quantity' if _k == 'volume' else _k): (datetime.strptime(_sq[_k], '%Y-%m-%d %H:%M:%S') if _k == 'begin' else datetime.strptime(_sq[_k], '%Y-%m-%d %H:%M:%S') if _k == 'end' else _sq[_k])
+                                    for _k in _sq
+                                    if _k in ['open', 'close', 'low', 'high', 'value', 'volume', 'begin', 'end',]
+                                } for _sq in _ti['candles']
+                            ]
+                            _st += self.mi.limit
+                            _res += _thq
+                            if len(_thq) == self.mi.limit:
+                                _isNext = True
+            except Exception as e:
+                print('MoexSecurity::getCandleQuotesAsArray(): ', e, file=sys.stderr)
         return _res
             
     def __str__(self):

@@ -4,61 +4,67 @@ import urllib.request
 import json
 import ssl
 import sys
-import pandas as pd
-from datetime import datetime
 
-from .MoexRequests import MoexRequests
-from .MoexSessions import MoexSessions
+from ._MoexRequests import _MoexRequests
 
 class MoexImporter:
     """Class MoexImporter implements https-queries to MOEX ISS API.
-    You should to create at least one instance to work wirh other objects in the package.
+    You should to create at least one instance to work with other objects in the package. \ \
     
     Base methods allow to get generic information about available engines and markets,
-    request securities lists and quotes.
+    request securities lists and quotes. \ \
     
     Quotes requests are wrapped in the MoexSecurity class to improve convenience.
     """
     def __init__(
             self,
-            _header = {
+            header = {
                 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0',
             },
-            _loadinfo = False
+            loadinfo = False
         ):
         """Class constructor initializes base variables and load information about
         engines and markets if flag `_loadinfo` is `True`
         
         Parameters
         ----------
-        _header : dict, optional
+        header : dict, optional
             HTTP-header for all requests to MOEX ISS API.
-        _loadinfo: boolean, optional
-            If True, engines and markets lists are requested from MOEX ISS. You may get
+        loadinfo: boolean, optional
+            If `True`, engines and markets lists are requested from MOEX ISS. You may get
             this information later with methods getEngines and getMarkets.
         
         """
+
         self.base_url = 'https://iss.moex.com/iss'
-        self.base_header = _header
+        """Base url for MOEX ISS API.
+        """
+        self.base_header = header
+        """Header.
+        """
         self.limit = 100
+        """Limit for maximum lines per request.
+        """
         self.base_values = {
             'iss.meta': 'off',
             'iss.json': 'extended',
         }
+        """Standard request parameters.
+        """
         self.requests_dictionary = {
-            MoexRequests.GetEngines: {
+            _MoexRequests.GetEngines: {
                 'postfix': '/engines.json',
                 'postfix_params': [],
                 'params': {},
             },
-            MoexRequests.GetMarkets: {
+            _MoexRequests.GetMarkets: {
                 'postfix': '/engines/__ENGINE__/markets.json',
                 'postfix_params': [
                     '__ENGINE__',
                 ],
                 'params': {},
             },
-            MoexRequests.GetSecuritiesAll: {
+            _MoexRequests.GetSecuritiesAll: {
                 'postfix': '/securities.json',
                 'postfix_params': [],
                 'params': {
@@ -66,7 +72,7 @@ class MoexImporter:
                     'is_trading': 's',
                 },
             },
-            MoexRequests.GetSecuritiesForEngine: {
+            _MoexRequests.GetSecuritiesForEngine: {
                 'postfix': '/securities.json',
                 'postfix_params': [],
                 'params': {
@@ -75,7 +81,7 @@ class MoexImporter:
                     'engine': 's',
                 },
             },
-            MoexRequests.GetSecuritiesForMarket: {
+            _MoexRequests.GetSecuritiesForMarket: {
                 'postfix': '/securities.json',
                 'postfix_params': [],
                 'params': {
@@ -85,7 +91,7 @@ class MoexImporter:
                     'market': 's',
                 },
             },
-            MoexRequests.GetSecuritiesSearch: {
+            _MoexRequests.GetSecuritiesSearch: {
                 'postfix': '/securities.json',
                 'postfix_params': [],
                 'params': {
@@ -94,14 +100,14 @@ class MoexImporter:
                     'q': 's',
                 },
             },
-            MoexRequests.GetSecurity: {
+            _MoexRequests.GetSecurity: {
                 'postfix': '/securities/__SECCODE__.json',
                 'postfix_params': [
                     '__SECCODE__',
                 ],
                 'params': {},
             },
-            MoexRequests.GetHistoryQuotes: {
+            _MoexRequests.GetHistoryQuotes: {
                 'postfix': '/history/engines/__ENGINE__/markets/__MARKET__/boards/__BOARD__/securities/__SECCODE__.json',
                 'postfix_params': [
                     '__ENGINE__',
@@ -117,59 +123,82 @@ class MoexImporter:
                     'limit': 'd',
                 },
             },
+            _MoexRequests.GetCandleQuotes: {
+                'postfix': '/engines/__ENGINE__/markets/__MARKET__/boards/__BOARD__/securities/__SECCODE__/candles.json',
+                'postfix_params': [
+                    '__ENGINE__',
+                    '__MARKET__',
+                    '__SECCODE__',
+                    '__BOARD__',
+                ],
+                'params': {
+                    'from': '%Y-%m-%d',
+                    'till': '%Y-%m-%d',
+                    'interval': 'd',
+                    'start': 'd',
+                },
+            },
         }
+        """Requests library.
+        """
         self.method = 'GET'
+        """Request method.
+        """
         self.engines = []
+        """Engines.
+        """
         self.markets = {}
-        if _loadinfo:
+        """Markets.
+        """
+        if loadinfo:
             self.engines = self.getEngines()
             if self.engines:
                 for _en in self.engines:
                     self.markets[_en['name']] = self.getMarkets(_en['name'])
                        
     def _MoexRequest(self, _type, _pparams = None, _params = None):
-        """Internal method for standartize https-queries to MOEX ISS.
+        """Internal method for standartize https-queries to MOEX ISS.  
         
         You don't need to call this method directly, but you may use it for
-        more specific queries.
+        more specific queries.  
         
         This method is wrapped into more direct methods to request data.
         
         Parameters
         ----------
-        _type: MoexRequests
+        _type: _MoexRequests
             Determines the type of the request. Is used to generate an url with
             required parameters. Algorithms to generate the url are implemented
             in __init__ method of the class.
         _pparams: dict, optional
             Dictionary of pairs id:value where id is the string id of the
             parameter and value is its string value. These parameters are
-            used in the url string and should be replace with values.
-            Example:
-            in the url template
-            https://iss.moex.com/iss/securities.json
+            used in the url string and should be replace with values.  
+            Example:  
+            in the url template  
+            https://iss.moex.com/iss/securities.json  
             parameter __SECCODE__ should be replaced with the actual security
             ticker.  {'__SECCODE___':'GAZP'} is passed to the method.
         _params: dict, optional
             Dictionary of pairs id:value where id is a string id of the
             parameter and value is its value. The value type depends on the
-            request and automatically converted for the url in this method.
-            Example:
-            request
-            https://iss.moex.com/iss/securities.json
-            may use 2 parameters in some cases: start and is_trading
-            https://iss.moex.com/iss/securities.json?start=0&is_trading=1
+            request and automatically converted for the url in this method.  
+            Example:  
+            request  
+            https://iss.moex.com/iss/securities.json  
+            may use 2 parameters in some cases: start and is_trading  
+            https://iss.moex.com/iss/securities.json?start=0&is_trading=1  
             the argument should be {'start': 0, 'is_trading': '1'}
                 
         Returns
         -------
         array_like
             Returns the array of dictionaries from the MOEX ISS reply.
-            This array should be parsed and converted for usage.
+            This array should be parsed and converted for usage.  
             More information you can find on https://iss.moex.com/iss/reference/
         """
         _res = None
-        _values = self.base_values
+        _values = self.base_values.copy()
         try:
             _mr = self.requests_dictionary[_type]
             _url = self.base_url + _mr['postfix']
@@ -182,9 +211,10 @@ class MoexImporter:
             if _params:
                 for _pp in _params:
                     if _pp in _rp:
-                        _values[_pp] = f'{_params[_pp]:{_rp[_pp]}}'
+                        _values[_pp] = f'{_params[_pp]:{_rp[_pp]:s}}'
             _data = urllib.parse.urlencode(_values)
-            _req = urllib.request.Request(_url+f'?{_data:s}', headers=self.base_header, method = self.method)
+            _url += f'?{_data:s}'
+            _req = urllib.request.Request(_url, headers=self.base_header, method = self.method)
             _resp = None
             try:
                 _resp = urllib.request.urlopen(_req, context=ssl._create_unverified_context())
@@ -210,7 +240,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _tmp = self._MoexRequest(MoexRequests.GetEngines)
+            _tmp = self._MoexRequest(_MoexRequests.GetEngines)
             if isinstance(_tmp, list):
                 for _ti in _tmp:
                     if isinstance(_ti, dict):
@@ -220,25 +250,25 @@ class MoexImporter:
             print('MoexImporter::getEngines(): ', e, file=sys.stderr)
         return _res
     
-    def getMarkets(self, _engine):
+    def getMarkets(self, engine):
         """Returns the list of markets.
         
         Parameters
         ----------
-        _engine: str
+        engine: str
             The engine string identifier to get markets list.
 
         Returns
         -------
         array_like
-            List of markets for the specific _engine.
+            List of markets for the specific `engine`.
         """
         _res = None
         try:
             _tmp = self._MoexRequest(
-                MoexRequests.GetMarkets,
+                _MoexRequests.GetMarkets,
                 _pparams = {
-                    '__ENGINE__': _engine,
+                    '__ENGINE__': engine,
                 },
             )
             if isinstance(_tmp, list):
@@ -250,46 +280,46 @@ class MoexImporter:
             print('MoexImporter::getMarkets(): ', e, file=sys.stderr)
         return _res
     
-    def getSecurity(self, _seccode):
+    def getSecurity(self, seccode):
         """Returns the specific data for the security.
         
         Parameters
         ----------
-        _seccode: str
+        seccode: str
             Security ticker.
 
         Returns
         -------
         array_like
-            List of specific data for `_seccode`.
+            List of specific data for `seccode`.
         """
         _res = None
         try:
             _res = self._MoexRequest(
-                MoexRequests.GetSecurity,
+                _MoexRequests.GetSecurity,
                 _pparams = {
-                    '__SECCODE__': _seccode,
+                    '__SECCODE__': seccode,
                 }
             )
         except Exception as e:
             print('MoexImporter::getSecurity(): ', e, file=sys.stderr)
         return _res
     
-    def _getSecurities(self, _is_trading='', _engine=None, _market=None, _query = None):
+    def _getSecurities(self, is_trading='', engine=None, market=None, query = None):
         """Internal method to request security list.
         
         Parameters
         ----------
-        _is_trading: str
-            Select traded, non-traded or all securities:
-            '' – all securities,
-            '0' - non-traded securities,
-            '1' - traded securities.
-        _engine: str
-            Securities for the specific engine.
-        _market: str
+        is_trading: str  
+            Select traded, non-traded or all securities:  
+            '' – all securities,  
+            '0' - non-traded securities,  
+            '1' - traded securities.  
+        engine: str
+            Securities for the specific _engine.
+        market: str
             Securities for the specific market.
-        _query: str
+        query: str
             Search security the part of its name or ticker.
 
         Returns
@@ -300,18 +330,18 @@ class MoexImporter:
         _res = None
         _params = {
             'start': 0,
-            'is_trading': _is_trading,
+            'is_trading': is_trading,
         }
-        _type = MoexRequests.GetSecuritiesAll
-        if _engine:
-            _type = MoexRequests.GetSecuritiesForEngine
-            _params['engine'] = _engine
-            if _market:
-                _type = MoexRequests.GetSecuritiesForMarket
-                _params['market'] = _market
-        if _query:
-            _type = MoexRequests.GetSecuritiesSearch
-            _params['q'] = _query
+        _type = _MoexRequests.GetSecuritiesAll
+        if engine:
+            _type = _MoexRequests.GetSecuritiesForEngine
+            _params['engine'] = engine
+            if market:
+                _type = _MoexRequests.GetSecuritiesForMarket
+                _params['market'] = market
+        if query:
+            _type = _MoexRequests.GetSecuritiesSearch
+            _params['q'] = query
         try:
             isNext = True
             while isNext:
@@ -341,12 +371,12 @@ class MoexImporter:
             print('MoexImporter::_getSecurities(): ', e, file=sys.stderr)
         return _res
 
-    def searchForSecurity(self, _secpart):
-        """Returns the list of all securities with the specific `_secpart` of the name or ticker.
+    def searchForSecurity(self, secpart):
+        """Returns the list of all securities with the specific `secpart` of the name or ticker.
         
         Parameters
         ----------
-        _secpart: str
+        secpart: str
             Part of the security name or ticker.
 
         Returns
@@ -356,20 +386,20 @@ class MoexImporter:
         """
         _res = None
         try:
-            if isinstance(_secpart, str):
-                _res = self._getSecurities(_query=_secpart)
+            if isinstance(secpart, str):
+                _res = self._getSecurities(query=secpart)
             else:
-                print('MoexImporter::searchForSecurity(): _secpart should be str', file=sys.stderr)
+                print('MoexImporter::searchForSecurity(): secpart should be str', file=sys.stderr)
         except Exception as e:
             print('MoexImporter::searchForSecurity(): ', e, file=sys.stderr)
         return _res
     
-    def searchForSecurityTraded(self, _secpart):
-        """Returns the list of traded securities with the specific `_secpart` of the name or ticker.
+    def searchForSecurityTraded(self, secpart):
+        """Returns the list of traded securities with the specific `secpart` of the name or ticker.
         
         Parameters
         ----------
-        _secpart: str
+        secpart: str
             Part of the security name or ticker.
 
         Returns
@@ -379,20 +409,20 @@ class MoexImporter:
         """
         _res = None
         try:
-            if isinstance(_secpart, str):
-                _res = self._getSecurities(_is_trading='1', _query=_secpart)
+            if isinstance(secpart, str):
+                _res = self._getSecurities(is_trading='1', query=secpart)
             else:
-                print('MoexImporter::searchForSecurityTraded(): _secpart should be str', file=sys.stderr)
+                print('MoexImporter::searchForSecurityTraded(): secpart should be str', file=sys.stderr)
         except Exception as e:
             print('MoexImporter::searchForSecurityTraded(): ', e, file=sys.stderr)
         return _res
     
-    def searchForSecurityNonTraded(self, _secpart):
-        """Returns the list of non-traded securities with the specific `_secpart` of the name or ticker.
+    def searchForSecurityNonTraded(self, secpart):
+        """Returns the list of non-traded securities with the specific `secpart` of the name or ticker.
         
         Parameters
         ----------
-        _secpart: str
+        secpart: str
             Part of the security name or ticker.
 
         Returns
@@ -402,10 +432,10 @@ class MoexImporter:
         """
         _res = None
         try:
-            if isinstance(_secpart, str):
-                _res = self._getSecurities(_is_trading='0', _query=_secpart)
+            if isinstance(secpart, str):
+                _res = self._getSecurities(is_trading='0', query=secpart)
             else:
-                print('MoexImporter::searchForSecurityNonTraded(): _secpart should be str', file=sys.stderr)
+                print('MoexImporter::searchForSecurityNonTraded(): secpart should be str', file=sys.stderr)
         except Exception as e:
             print('MoexImporter::searchForSecurityNonTraded(): ', e, file=sys.stderr)
         return _res
@@ -435,7 +465,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='1')
+            _res = self._getSecurities(is_trading='1')
         except Exception as e:
             print('MoexImporter::getSecuritiesAllTraded(): ', e, file=sys.stderr)
         return _res
@@ -450,7 +480,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='0')
+            _res = self._getSecurities(is_trading='0')
         except Exception as e:
             print('MoexImporter::getSecuritiesAllNonTraded(): ', e, file=sys.stderr)
         return _res
@@ -465,8 +495,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='', _engine='stock', _market = 'bonds')
-            #_res += self._getSecurities(_is_trading='', _engine='state', _market = 'bonds')
+            _res = self._getSecurities(is_trading='', engine='stock', market = 'bonds')
         except Exception as e:
             print('MoexImporter::getAllBonds(): ', e, file=sys.stderr)
         return _res
@@ -481,8 +510,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='1', _engine='stock', _market = 'bonds')
-            #_res += self._getSecurities(_is_trading='1', _engine='state', _market = 'bonds')
+            _res = self._getSecurities(is_trading='1', engine='stock', market = 'bonds')
         except Exception as e:
             print('MoexImporter::getAllBondsTraded(): ', e, file=sys.stderr)
         return _res
@@ -497,8 +525,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='0', _engine='stock', _market = 'bonds')
-            #_res += self._getSecurities(_is_trading='0', _engine='state', _market = 'bonds')
+            _res = self._getSecurities(is_trading='0', engine='stock', market = 'bonds')
         except Exception as e:
             print('MoexImporter::getAllBondsNonTraded(): ', e, file=sys.stderr)
         return _res
@@ -513,7 +540,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='', _engine='stock', _market = 'shares')
+            _res = self._getSecurities(is_trading='', engine='stock', market = 'shares')
         except Exception as e:
             print('MoexImporter::getAllShares(): ', e, file=sys.stderr)
         return _res
@@ -528,7 +555,7 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='1', _engine='stock', _market = 'shares')
+            _res = self._getSecurities(is_trading='1', engine='stock', market = 'shares')
         except Exception as e:
             print('MoexImporter::getAllSharesTraded(): ', e, file=sys.stderr)
         return _res
@@ -543,31 +570,31 @@ class MoexImporter:
         """
         _res = None
         try:
-            _res = self._getSecurities(_is_trading='0', _engine='stock', _market = 'shares')
+            _res = self._getSecurities(is_trading='0', engine='stock', market = 'shares')
         except Exception as e:
             print('MoexImporter::getAllSharesNonTraded(): ', e, file=sys.stderr)
         return _res
     
-    def getHistoryQuotes(self, _engine, _market, _board, _seccode, _from, _till, _tsession, _start):
+    def getHistoryQuotes(self, engine, market, board, seccode, dtfrom, dttill, tsession, start):
         """Returns quotes for the specific security.
         
         Parameters
         ----------
-        _engine: str
+        engine: str
             Specify engine for quotes.
-        _market: str
+        market: str
             Specify market for quotes.
-        _board: str
+        board: str
             Specify board for quotes.
-        _seccode: str
+        seccode: str
             Security ticker.
-        _from: date
+        dtfrom: date
             Left bound of daterange for quotes.
-        _till: date
+        dttill: date
             Right bound of daterange for quotes.
-        _tsession: MoexSessions
+        tsession: MoexSessions
             Specify trading session for quotes.
-        _start: int
+        start: int
             Specify cursor for query. MOEX ISS returns only
             limited number of quotes per request. You have to
             shift the cursor to get the next portion.
@@ -580,21 +607,71 @@ class MoexImporter:
         _res = None
         try:
             _res = self._MoexRequest(
-                MoexRequests.GetHistoryQuotes,
+                _MoexRequests.GetHistoryQuotes,
                 _pparams = {
-                    '__SECCODE__': _seccode,
-                    '__ENGINE__': _engine,
-                    '__MARKET__': _market,
-                    '__BOARD__': _board,
+                    '__SECCODE__': seccode,
+                    '__ENGINE__': engine,
+                    '__MARKET__': market,
+                    '__BOARD__': board,
                 },
                 _params = {
-                    'from': _from,
-                    'till': _till,
-                    'tradingsession': _tsession,
-                    'start': _start,
+                    'from': dtfrom,
+                    'till': dttill,
+                    'tradingsession': tsession,
+                    'start': start,
                     'limit': self.limit,
                 }
             )
         except Exception as e:
             print('MoexImporter::getHistoryQuotes(): ', e, file=sys.stderr)
+        return _res
+    
+    def getCandles(self, engine, market, board, seccode, dtfrom, dttill, start, candleperiod):
+        """Returns candles for the specific security.
+        
+        Parameters
+        ----------
+        engine: str
+            Specify engine for quotes.
+        market: str
+            Specify market for quotes.
+        board: str
+            Specify board for quotes.
+        seccode: str
+            Security ticker.
+        dtfrom: date
+            Left bound of daterange for quotes.
+        dttill: date
+            Right bound of daterange for quotes.
+        start: int
+            Specify cursor for query. MOEX ISS returns only
+            limited number of quotes per request. You have to
+            shift the cursor to get the next portion.
+        candleperiod: MoexCandlePeriods
+            Period for candle.
+
+        Returns
+        -------
+        array_like
+            List of quotes.
+        """
+        _res = None
+        try:
+            _res = self._MoexRequest(
+                _MoexRequests.GetCandleQuotes,
+                _pparams = {
+                    '__SECCODE__': seccode,
+                    '__ENGINE__': engine,
+                    '__MARKET__': market,
+                    '__BOARD__': board,
+                },
+                _params = {
+                    'from': dtfrom,
+                    'till': dttill,
+                    'interval': candleperiod,
+                    'start': start,
+                }
+            )
+        except Exception as e:
+            print('MoexImporter::getCandles(): ', e, file=sys.stderr)
         return _res

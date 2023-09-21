@@ -1,5 +1,8 @@
 # Project description
 
+## Important
+**Arguments naming has been changed.**
+
 ## Disclaimer
 This project is **not affilliated** with [MOEX](https://www.moex.com).
 
@@ -24,7 +27,7 @@ Install `moeximporter`:
 ```
 # Import required modules
 from datetime import date
-from moeximporter import MoexImporter, MoexSecurity
+from moeximporter import MoexImporter, MoexSecurity, MoexCandlePeriods
 ```
 
 ### Initialization
@@ -64,6 +67,12 @@ quotes_df = sec.getHistoryQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20))
 
 # Request quotes as an array of dicts
 quotes_arr = sec.getHistoryQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20))
+
+# Request candles as a pandas DataFrame
+candles_df = sec.getCandleQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20), _interval=MoexCandlePeriods.Period1Hour)
+
+# Request candles as an array of dicts
+candles_arr = sec.getCandleQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20), _interval=MoexCandlePeriods.Period1Hour)
 
 ```
 ## Licensing

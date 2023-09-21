@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = '0.1.4' 
+VERSION = '0.2.0' 
 DESCRIPTION = 'MOEX Importer package'
 
 this_directory = Path(__file__).parent
