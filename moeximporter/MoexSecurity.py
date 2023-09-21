@@ -5,7 +5,26 @@ from .MoexImporter import MoexImporter
 from .MoexSessions import MoexSessions
 
 class MoexSecurity:
+    """Class MoexSecurity implements methods to
+    store and request security-specific information.
+    
+    Instance of MoexImporter should be created
+    before.
+    """
     def __init__(self, _seccode, _mi):
+        """Class constructor initializes base variables
+        and loads security-specific information from
+        MOEX ISS.
+        
+        Parameters
+        ----------
+            _seccode: str
+                Security ticker from MOEX.
+            _mi: MoexImporter
+                The object of MoexImporter that was
+                created before. You can't use the class
+                without this object.
+        """
         self.seccode = _seccode
         self.shortname = None
         self.mainboard = None
@@ -47,6 +66,37 @@ class MoexSecurity:
             print('MoexSecurity::__init__(): must be initialized with MoexImporter object.', file=sys.stderr)
             
     def getHistoryQuotesAsDataFrame(self, _dtf, _dtt, _board = None, _ts = MoexSessions.MainSession):
+        """Returns quotes for the security as a pandas dataframe.
+        
+        Parameters
+        ----------
+            _dtf: date
+                The left bound of the range to request quotes.
+            _dtt: date
+                The right bound of the range to request quotes.
+            _board: str, optional
+                Request quotes for the specific board. The primary board
+                is used if the parameter is ommited. You can check
+                class attribute `boards` to get all available boards.
+            _ts: MoexSessions, optional
+                Request quotes for the specific session. The main session
+                is used if the parameter is ommited.
+
+        Returns
+        --------
+            pd.DataFrame:
+                Quotes as pandas dataframe.
+                Columns:
+                'TRADEDATE' - date of the quote,
+                'OPEN' - open price,
+                'HIGH' - high price,
+                'LOW' - low price,
+                'CLOSE' - last price,
+                'YIELD' - yield to maturity, may be None for non-bonds,
+                'DURATION' - duration in days, may be None for non-bonds,
+                'VALUE' - trading value in rubles,
+                'QUANTITY' - trading value in securities.
+        """
         _res = None
         try:
             _tmp = self.getHistoryQuotesAsArray(_dtf=_dtf, _dtt=_dtt, _board=_board, _ts=_ts)
@@ -58,6 +108,37 @@ class MoexSecurity:
         return _res
     
     def getHistoryQuotesAsArray(self, _dtf, _dtt, _board = None, _ts = MoexSessions.MainSession):
+        """Returns quotes for the security as an array of dicts.
+        
+        Parameters
+        ----------
+            _dtf: date
+                The left bound of the range to request quotes.
+            _dtt: date
+                The right bound of the range to request quotes.
+            _board: str, optional
+                Request quotes for the specific board. The primary board
+                is used if the parameter is ommited. You can check
+                class attribute `boards` to get all available boards.
+            _ts: MoexSessions, optional
+                Request quotes for the specific session. The main session
+                is used if the parameter is ommited.
+
+        Returns
+        --------
+            array_like:
+                Quotes as an array of dicts.
+                Dict keys:
+                'TRADEDATE' - date of the quote,
+                'OPEN' - open price,
+                'HIGH' - high price,
+                'LOW' - low price,
+                'CLOSE' - last price,
+                'YIELD' - yield to maturity, may be None for non-bonds,
+                'DURATION' - duration in days, may be None for non-bonds,
+                'VALUE' - trading value in rubles,
+                'QUANTITY' - trading value in securities.
+        """
         _res = []
         if isinstance(self.mi, MoexImporter):
             _tb = self.mainboard
