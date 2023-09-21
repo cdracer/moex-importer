@@ -161,7 +161,7 @@
 </span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>            <span class="n">_loadinfo</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>        <span class="p">):</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Class constructor initializes base variables and load information about</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        engines and markets if flag _loadinfo is `True`</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        engines and markets if flag `_loadinfo` is `True`</span>
 </span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="sd">        </span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="sd">        Parameters</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="sd">        ----------</span>
@@ -476,12 +476,12 @@
 </span><span id="L-342"><a href="#L-342"><span class="linenos">342</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a>
 </span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>    <span class="k">def</span> <span class="nf">searchForSecurity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a><span class="sd">        </span>
 </span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a><span class="sd">        Parameters</span>
 </span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a><span class="sd">        ----------</span>
 </span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a><span class="sd">        _secpart: str</span>
-</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a>
 </span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a><span class="sd">        Returns</span>
 </span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a><span class="sd">        -------</span>
@@ -499,12 +499,12 @@
 </span><span id="L-365"><a href="#L-365"><span class="linenos">365</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-366"><a href="#L-366"><span class="linenos">366</span></a>    
 </span><span id="L-367"><a href="#L-367"><span class="linenos">367</span></a>    <span class="k">def</span> <span class="nf">searchForSecurityTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="L-368"><a href="#L-368"><span class="linenos">368</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of traded securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="L-368"><a href="#L-368"><span class="linenos">368</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of traded securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="L-369"><a href="#L-369"><span class="linenos">369</span></a><span class="sd">        </span>
 </span><span id="L-370"><a href="#L-370"><span class="linenos">370</span></a><span class="sd">        Parameters</span>
 </span><span id="L-371"><a href="#L-371"><span class="linenos">371</span></a><span class="sd">        ----------</span>
 </span><span id="L-372"><a href="#L-372"><span class="linenos">372</span></a><span class="sd">        _secpart: str</span>
-</span><span id="L-373"><a href="#L-373"><span class="linenos">373</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="L-373"><a href="#L-373"><span class="linenos">373</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="L-374"><a href="#L-374"><span class="linenos">374</span></a>
 </span><span id="L-375"><a href="#L-375"><span class="linenos">375</span></a><span class="sd">        Returns</span>
 </span><span id="L-376"><a href="#L-376"><span class="linenos">376</span></a><span class="sd">        -------</span>
@@ -522,12 +522,12 @@
 </span><span id="L-388"><a href="#L-388"><span class="linenos">388</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-389"><a href="#L-389"><span class="linenos">389</span></a>    
 </span><span id="L-390"><a href="#L-390"><span class="linenos">390</span></a>    <span class="k">def</span> <span class="nf">searchForSecurityNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="L-391"><a href="#L-391"><span class="linenos">391</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of non-traded securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="L-391"><a href="#L-391"><span class="linenos">391</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of non-traded securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="L-392"><a href="#L-392"><span class="linenos">392</span></a><span class="sd">        </span>
 </span><span id="L-393"><a href="#L-393"><span class="linenos">393</span></a><span class="sd">        Parameters</span>
 </span><span id="L-394"><a href="#L-394"><span class="linenos">394</span></a><span class="sd">        ----------</span>
 </span><span id="L-395"><a href="#L-395"><span class="linenos">395</span></a><span class="sd">        _secpart: str</span>
-</span><span id="L-396"><a href="#L-396"><span class="linenos">396</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="L-396"><a href="#L-396"><span class="linenos">396</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="L-397"><a href="#L-397"><span class="linenos">397</span></a>
 </span><span id="L-398"><a href="#L-398"><span class="linenos">398</span></a><span class="sd">        Returns</span>
 </span><span id="L-399"><a href="#L-399"><span class="linenos">399</span></a><span class="sd">        -------</span>
@@ -545,7 +545,7 @@
 </span><span id="L-411"><a href="#L-411"><span class="linenos">411</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-412"><a href="#L-412"><span class="linenos">412</span></a>    
 </span><span id="L-413"><a href="#L-413"><span class="linenos">413</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-414"><a href="#L-414"><span class="linenos">414</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all securities.</span>
+</span><span id="L-414"><a href="#L-414"><span class="linenos">414</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all securities.</span>
 </span><span id="L-415"><a href="#L-415"><span class="linenos">415</span></a>
 </span><span id="L-416"><a href="#L-416"><span class="linenos">416</span></a><span class="sd">        Returns</span>
 </span><span id="L-417"><a href="#L-417"><span class="linenos">417</span></a><span class="sd">        -------</span>
@@ -560,7 +560,7 @@
 </span><span id="L-426"><a href="#L-426"><span class="linenos">426</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-427"><a href="#L-427"><span class="linenos">427</span></a>    
 </span><span id="L-428"><a href="#L-428"><span class="linenos">428</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of traded securities.</span>
+</span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of traded securities.</span>
 </span><span id="L-430"><a href="#L-430"><span class="linenos">430</span></a>
 </span><span id="L-431"><a href="#L-431"><span class="linenos">431</span></a><span class="sd">        Returns</span>
 </span><span id="L-432"><a href="#L-432"><span class="linenos">432</span></a><span class="sd">        -------</span>
@@ -575,7 +575,7 @@
 </span><span id="L-441"><a href="#L-441"><span class="linenos">441</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-442"><a href="#L-442"><span class="linenos">442</span></a>    
 </span><span id="L-443"><a href="#L-443"><span class="linenos">443</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-444"><a href="#L-444"><span class="linenos">444</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of non-traded securities.</span>
+</span><span id="L-444"><a href="#L-444"><span class="linenos">444</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of non-traded securities.</span>
 </span><span id="L-445"><a href="#L-445"><span class="linenos">445</span></a>
 </span><span id="L-446"><a href="#L-446"><span class="linenos">446</span></a><span class="sd">        Returns</span>
 </span><span id="L-447"><a href="#L-447"><span class="linenos">447</span></a><span class="sd">        -------</span>
@@ -590,7 +590,7 @@
 </span><span id="L-456"><a href="#L-456"><span class="linenos">456</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-457"><a href="#L-457"><span class="linenos">457</span></a>    
 </span><span id="L-458"><a href="#L-458"><span class="linenos">458</span></a>    <span class="k">def</span> <span class="nf">getBondsAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-459"><a href="#L-459"><span class="linenos">459</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all local bonds.</span>
+</span><span id="L-459"><a href="#L-459"><span class="linenos">459</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all local bonds.</span>
 </span><span id="L-460"><a href="#L-460"><span class="linenos">460</span></a>
 </span><span id="L-461"><a href="#L-461"><span class="linenos">461</span></a><span class="sd">        Returns</span>
 </span><span id="L-462"><a href="#L-462"><span class="linenos">462</span></a><span class="sd">        -------</span>
@@ -606,7 +606,7 @@
 </span><span id="L-472"><a href="#L-472"><span class="linenos">472</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-473"><a href="#L-473"><span class="linenos">473</span></a>    
 </span><span id="L-474"><a href="#L-474"><span class="linenos">474</span></a>    <span class="k">def</span> <span class="nf">getBondsAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-475"><a href="#L-475"><span class="linenos">475</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all traded local bonds.</span>
+</span><span id="L-475"><a href="#L-475"><span class="linenos">475</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all traded local bonds.</span>
 </span><span id="L-476"><a href="#L-476"><span class="linenos">476</span></a>
 </span><span id="L-477"><a href="#L-477"><span class="linenos">477</span></a><span class="sd">        Returns</span>
 </span><span id="L-478"><a href="#L-478"><span class="linenos">478</span></a><span class="sd">        -------</span>
@@ -622,7 +622,7 @@
 </span><span id="L-488"><a href="#L-488"><span class="linenos">488</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-489"><a href="#L-489"><span class="linenos">489</span></a>
 </span><span id="L-490"><a href="#L-490"><span class="linenos">490</span></a>    <span class="k">def</span> <span class="nf">getBondsAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-491"><a href="#L-491"><span class="linenos">491</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all non-traded local bonds.</span>
+</span><span id="L-491"><a href="#L-491"><span class="linenos">491</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all non-traded local bonds.</span>
 </span><span id="L-492"><a href="#L-492"><span class="linenos">492</span></a>
 </span><span id="L-493"><a href="#L-493"><span class="linenos">493</span></a><span class="sd">        Returns</span>
 </span><span id="L-494"><a href="#L-494"><span class="linenos">494</span></a><span class="sd">        -------</span>
@@ -638,7 +638,7 @@
 </span><span id="L-504"><a href="#L-504"><span class="linenos">504</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-505"><a href="#L-505"><span class="linenos">505</span></a>    
 </span><span id="L-506"><a href="#L-506"><span class="linenos">506</span></a>    <span class="k">def</span> <span class="nf">getSharesAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all local shares.</span>
+</span><span id="L-507"><a href="#L-507"><span class="linenos">507</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all local shares.</span>
 </span><span id="L-508"><a href="#L-508"><span class="linenos">508</span></a>
 </span><span id="L-509"><a href="#L-509"><span class="linenos">509</span></a><span class="sd">        Returns</span>
 </span><span id="L-510"><a href="#L-510"><span class="linenos">510</span></a><span class="sd">        -------</span>
@@ -653,7 +653,7 @@
 </span><span id="L-519"><a href="#L-519"><span class="linenos">519</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-520"><a href="#L-520"><span class="linenos">520</span></a>    
 </span><span id="L-521"><a href="#L-521"><span class="linenos">521</span></a>    <span class="k">def</span> <span class="nf">getSharesAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-522"><a href="#L-522"><span class="linenos">522</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all traded local shares.</span>
+</span><span id="L-522"><a href="#L-522"><span class="linenos">522</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all traded local shares.</span>
 </span><span id="L-523"><a href="#L-523"><span class="linenos">523</span></a>
 </span><span id="L-524"><a href="#L-524"><span class="linenos">524</span></a><span class="sd">        Returns</span>
 </span><span id="L-525"><a href="#L-525"><span class="linenos">525</span></a><span class="sd">        -------</span>
@@ -668,7 +668,7 @@
 </span><span id="L-534"><a href="#L-534"><span class="linenos">534</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="L-535"><a href="#L-535"><span class="linenos">535</span></a>
 </span><span id="L-536"><a href="#L-536"><span class="linenos">536</span></a>    <span class="k">def</span> <span class="nf">getSharesAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-537"><a href="#L-537"><span class="linenos">537</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all non-traded local shares.</span>
+</span><span id="L-537"><a href="#L-537"><span class="linenos">537</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all non-traded local shares.</span>
 </span><span id="L-538"><a href="#L-538"><span class="linenos">538</span></a>
 </span><span id="L-539"><a href="#L-539"><span class="linenos">539</span></a><span class="sd">        Returns</span>
 </span><span id="L-540"><a href="#L-540"><span class="linenos">540</span></a><span class="sd">        -------</span>
@@ -764,7 +764,7 @@
 </span><span id="MoexImporter-28"><a href="#MoexImporter-28"><span class="linenos"> 28</span></a>            <span class="n">_loadinfo</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="MoexImporter-29"><a href="#MoexImporter-29"><span class="linenos"> 29</span></a>        <span class="p">):</span>
 </span><span id="MoexImporter-30"><a href="#MoexImporter-30"><span class="linenos"> 30</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Class constructor initializes base variables and load information about</span>
-</span><span id="MoexImporter-31"><a href="#MoexImporter-31"><span class="linenos"> 31</span></a><span class="sd">        engines and markets if flag _loadinfo is `True`</span>
+</span><span id="MoexImporter-31"><a href="#MoexImporter-31"><span class="linenos"> 31</span></a><span class="sd">        engines and markets if flag `_loadinfo` is `True`</span>
 </span><span id="MoexImporter-32"><a href="#MoexImporter-32"><span class="linenos"> 32</span></a><span class="sd">        </span>
 </span><span id="MoexImporter-33"><a href="#MoexImporter-33"><span class="linenos"> 33</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter-34"><a href="#MoexImporter-34"><span class="linenos"> 34</span></a><span class="sd">        ----------</span>
@@ -1079,12 +1079,12 @@
 </span><span id="MoexImporter-343"><a href="#MoexImporter-343"><span class="linenos">343</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-344"><a href="#MoexImporter-344"><span class="linenos">344</span></a>
 </span><span id="MoexImporter-345"><a href="#MoexImporter-345"><span class="linenos">345</span></a>    <span class="k">def</span> <span class="nf">searchForSecurity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="MoexImporter-346"><a href="#MoexImporter-346"><span class="linenos">346</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="MoexImporter-346"><a href="#MoexImporter-346"><span class="linenos">346</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="MoexImporter-347"><a href="#MoexImporter-347"><span class="linenos">347</span></a><span class="sd">        </span>
 </span><span id="MoexImporter-348"><a href="#MoexImporter-348"><span class="linenos">348</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter-349"><a href="#MoexImporter-349"><span class="linenos">349</span></a><span class="sd">        ----------</span>
 </span><span id="MoexImporter-350"><a href="#MoexImporter-350"><span class="linenos">350</span></a><span class="sd">        _secpart: str</span>
-</span><span id="MoexImporter-351"><a href="#MoexImporter-351"><span class="linenos">351</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="MoexImporter-351"><a href="#MoexImporter-351"><span class="linenos">351</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="MoexImporter-352"><a href="#MoexImporter-352"><span class="linenos">352</span></a>
 </span><span id="MoexImporter-353"><a href="#MoexImporter-353"><span class="linenos">353</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-354"><a href="#MoexImporter-354"><span class="linenos">354</span></a><span class="sd">        -------</span>
@@ -1102,12 +1102,12 @@
 </span><span id="MoexImporter-366"><a href="#MoexImporter-366"><span class="linenos">366</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-367"><a href="#MoexImporter-367"><span class="linenos">367</span></a>    
 </span><span id="MoexImporter-368"><a href="#MoexImporter-368"><span class="linenos">368</span></a>    <span class="k">def</span> <span class="nf">searchForSecurityTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="MoexImporter-369"><a href="#MoexImporter-369"><span class="linenos">369</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of traded securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="MoexImporter-369"><a href="#MoexImporter-369"><span class="linenos">369</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of traded securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="MoexImporter-370"><a href="#MoexImporter-370"><span class="linenos">370</span></a><span class="sd">        </span>
 </span><span id="MoexImporter-371"><a href="#MoexImporter-371"><span class="linenos">371</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter-372"><a href="#MoexImporter-372"><span class="linenos">372</span></a><span class="sd">        ----------</span>
 </span><span id="MoexImporter-373"><a href="#MoexImporter-373"><span class="linenos">373</span></a><span class="sd">        _secpart: str</span>
-</span><span id="MoexImporter-374"><a href="#MoexImporter-374"><span class="linenos">374</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="MoexImporter-374"><a href="#MoexImporter-374"><span class="linenos">374</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="MoexImporter-375"><a href="#MoexImporter-375"><span class="linenos">375</span></a>
 </span><span id="MoexImporter-376"><a href="#MoexImporter-376"><span class="linenos">376</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-377"><a href="#MoexImporter-377"><span class="linenos">377</span></a><span class="sd">        -------</span>
@@ -1125,12 +1125,12 @@
 </span><span id="MoexImporter-389"><a href="#MoexImporter-389"><span class="linenos">389</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-390"><a href="#MoexImporter-390"><span class="linenos">390</span></a>    
 </span><span id="MoexImporter-391"><a href="#MoexImporter-391"><span class="linenos">391</span></a>    <span class="k">def</span> <span class="nf">searchForSecurityNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="MoexImporter-392"><a href="#MoexImporter-392"><span class="linenos">392</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of non-traded securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="MoexImporter-392"><a href="#MoexImporter-392"><span class="linenos">392</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of non-traded securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="MoexImporter-393"><a href="#MoexImporter-393"><span class="linenos">393</span></a><span class="sd">        </span>
 </span><span id="MoexImporter-394"><a href="#MoexImporter-394"><span class="linenos">394</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter-395"><a href="#MoexImporter-395"><span class="linenos">395</span></a><span class="sd">        ----------</span>
 </span><span id="MoexImporter-396"><a href="#MoexImporter-396"><span class="linenos">396</span></a><span class="sd">        _secpart: str</span>
-</span><span id="MoexImporter-397"><a href="#MoexImporter-397"><span class="linenos">397</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="MoexImporter-397"><a href="#MoexImporter-397"><span class="linenos">397</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="MoexImporter-398"><a href="#MoexImporter-398"><span class="linenos">398</span></a>
 </span><span id="MoexImporter-399"><a href="#MoexImporter-399"><span class="linenos">399</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-400"><a href="#MoexImporter-400"><span class="linenos">400</span></a><span class="sd">        -------</span>
@@ -1148,7 +1148,7 @@
 </span><span id="MoexImporter-412"><a href="#MoexImporter-412"><span class="linenos">412</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-413"><a href="#MoexImporter-413"><span class="linenos">413</span></a>    
 </span><span id="MoexImporter-414"><a href="#MoexImporter-414"><span class="linenos">414</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-415"><a href="#MoexImporter-415"><span class="linenos">415</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all securities.</span>
+</span><span id="MoexImporter-415"><a href="#MoexImporter-415"><span class="linenos">415</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all securities.</span>
 </span><span id="MoexImporter-416"><a href="#MoexImporter-416"><span class="linenos">416</span></a>
 </span><span id="MoexImporter-417"><a href="#MoexImporter-417"><span class="linenos">417</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-418"><a href="#MoexImporter-418"><span class="linenos">418</span></a><span class="sd">        -------</span>
@@ -1163,7 +1163,7 @@
 </span><span id="MoexImporter-427"><a href="#MoexImporter-427"><span class="linenos">427</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-428"><a href="#MoexImporter-428"><span class="linenos">428</span></a>    
 </span><span id="MoexImporter-429"><a href="#MoexImporter-429"><span class="linenos">429</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-430"><a href="#MoexImporter-430"><span class="linenos">430</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of traded securities.</span>
+</span><span id="MoexImporter-430"><a href="#MoexImporter-430"><span class="linenos">430</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of traded securities.</span>
 </span><span id="MoexImporter-431"><a href="#MoexImporter-431"><span class="linenos">431</span></a>
 </span><span id="MoexImporter-432"><a href="#MoexImporter-432"><span class="linenos">432</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-433"><a href="#MoexImporter-433"><span class="linenos">433</span></a><span class="sd">        -------</span>
@@ -1178,7 +1178,7 @@
 </span><span id="MoexImporter-442"><a href="#MoexImporter-442"><span class="linenos">442</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-443"><a href="#MoexImporter-443"><span class="linenos">443</span></a>    
 </span><span id="MoexImporter-444"><a href="#MoexImporter-444"><span class="linenos">444</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-445"><a href="#MoexImporter-445"><span class="linenos">445</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of non-traded securities.</span>
+</span><span id="MoexImporter-445"><a href="#MoexImporter-445"><span class="linenos">445</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of non-traded securities.</span>
 </span><span id="MoexImporter-446"><a href="#MoexImporter-446"><span class="linenos">446</span></a>
 </span><span id="MoexImporter-447"><a href="#MoexImporter-447"><span class="linenos">447</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-448"><a href="#MoexImporter-448"><span class="linenos">448</span></a><span class="sd">        -------</span>
@@ -1193,7 +1193,7 @@
 </span><span id="MoexImporter-457"><a href="#MoexImporter-457"><span class="linenos">457</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-458"><a href="#MoexImporter-458"><span class="linenos">458</span></a>    
 </span><span id="MoexImporter-459"><a href="#MoexImporter-459"><span class="linenos">459</span></a>    <span class="k">def</span> <span class="nf">getBondsAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-460"><a href="#MoexImporter-460"><span class="linenos">460</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all local bonds.</span>
+</span><span id="MoexImporter-460"><a href="#MoexImporter-460"><span class="linenos">460</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all local bonds.</span>
 </span><span id="MoexImporter-461"><a href="#MoexImporter-461"><span class="linenos">461</span></a>
 </span><span id="MoexImporter-462"><a href="#MoexImporter-462"><span class="linenos">462</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-463"><a href="#MoexImporter-463"><span class="linenos">463</span></a><span class="sd">        -------</span>
@@ -1209,7 +1209,7 @@
 </span><span id="MoexImporter-473"><a href="#MoexImporter-473"><span class="linenos">473</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-474"><a href="#MoexImporter-474"><span class="linenos">474</span></a>    
 </span><span id="MoexImporter-475"><a href="#MoexImporter-475"><span class="linenos">475</span></a>    <span class="k">def</span> <span class="nf">getBondsAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-476"><a href="#MoexImporter-476"><span class="linenos">476</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all traded local bonds.</span>
+</span><span id="MoexImporter-476"><a href="#MoexImporter-476"><span class="linenos">476</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all traded local bonds.</span>
 </span><span id="MoexImporter-477"><a href="#MoexImporter-477"><span class="linenos">477</span></a>
 </span><span id="MoexImporter-478"><a href="#MoexImporter-478"><span class="linenos">478</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-479"><a href="#MoexImporter-479"><span class="linenos">479</span></a><span class="sd">        -------</span>
@@ -1225,7 +1225,7 @@
 </span><span id="MoexImporter-489"><a href="#MoexImporter-489"><span class="linenos">489</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-490"><a href="#MoexImporter-490"><span class="linenos">490</span></a>
 </span><span id="MoexImporter-491"><a href="#MoexImporter-491"><span class="linenos">491</span></a>    <span class="k">def</span> <span class="nf">getBondsAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-492"><a href="#MoexImporter-492"><span class="linenos">492</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all non-traded local bonds.</span>
+</span><span id="MoexImporter-492"><a href="#MoexImporter-492"><span class="linenos">492</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all non-traded local bonds.</span>
 </span><span id="MoexImporter-493"><a href="#MoexImporter-493"><span class="linenos">493</span></a>
 </span><span id="MoexImporter-494"><a href="#MoexImporter-494"><span class="linenos">494</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-495"><a href="#MoexImporter-495"><span class="linenos">495</span></a><span class="sd">        -------</span>
@@ -1241,7 +1241,7 @@
 </span><span id="MoexImporter-505"><a href="#MoexImporter-505"><span class="linenos">505</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-506"><a href="#MoexImporter-506"><span class="linenos">506</span></a>    
 </span><span id="MoexImporter-507"><a href="#MoexImporter-507"><span class="linenos">507</span></a>    <span class="k">def</span> <span class="nf">getSharesAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-508"><a href="#MoexImporter-508"><span class="linenos">508</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all local shares.</span>
+</span><span id="MoexImporter-508"><a href="#MoexImporter-508"><span class="linenos">508</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all local shares.</span>
 </span><span id="MoexImporter-509"><a href="#MoexImporter-509"><span class="linenos">509</span></a>
 </span><span id="MoexImporter-510"><a href="#MoexImporter-510"><span class="linenos">510</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-511"><a href="#MoexImporter-511"><span class="linenos">511</span></a><span class="sd">        -------</span>
@@ -1256,7 +1256,7 @@
 </span><span id="MoexImporter-520"><a href="#MoexImporter-520"><span class="linenos">520</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-521"><a href="#MoexImporter-521"><span class="linenos">521</span></a>    
 </span><span id="MoexImporter-522"><a href="#MoexImporter-522"><span class="linenos">522</span></a>    <span class="k">def</span> <span class="nf">getSharesAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-523"><a href="#MoexImporter-523"><span class="linenos">523</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all traded local shares.</span>
+</span><span id="MoexImporter-523"><a href="#MoexImporter-523"><span class="linenos">523</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all traded local shares.</span>
 </span><span id="MoexImporter-524"><a href="#MoexImporter-524"><span class="linenos">524</span></a>
 </span><span id="MoexImporter-525"><a href="#MoexImporter-525"><span class="linenos">525</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-526"><a href="#MoexImporter-526"><span class="linenos">526</span></a><span class="sd">        -------</span>
@@ -1271,7 +1271,7 @@
 </span><span id="MoexImporter-535"><a href="#MoexImporter-535"><span class="linenos">535</span></a>        <span class="k">return</span> <span class="n">_res</span>
 </span><span id="MoexImporter-536"><a href="#MoexImporter-536"><span class="linenos">536</span></a>
 </span><span id="MoexImporter-537"><a href="#MoexImporter-537"><span class="linenos">537</span></a>    <span class="k">def</span> <span class="nf">getSharesAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter-538"><a href="#MoexImporter-538"><span class="linenos">538</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all non-traded local shares.</span>
+</span><span id="MoexImporter-538"><a href="#MoexImporter-538"><span class="linenos">538</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all non-traded local shares.</span>
 </span><span id="MoexImporter-539"><a href="#MoexImporter-539"><span class="linenos">539</span></a>
 </span><span id="MoexImporter-540"><a href="#MoexImporter-540"><span class="linenos">540</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter-541"><a href="#MoexImporter-541"><span class="linenos">541</span></a><span class="sd">        -------</span>
@@ -1366,7 +1366,7 @@ request securities lists and quotes.</p>
 </span><span id="MoexImporter.__init__-28"><a href="#MoexImporter.__init__-28"><span class="linenos"> 28</span></a>            <span class="n">_loadinfo</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="MoexImporter.__init__-29"><a href="#MoexImporter.__init__-29"><span class="linenos"> 29</span></a>        <span class="p">):</span>
 </span><span id="MoexImporter.__init__-30"><a href="#MoexImporter.__init__-30"><span class="linenos"> 30</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Class constructor initializes base variables and load information about</span>
-</span><span id="MoexImporter.__init__-31"><a href="#MoexImporter.__init__-31"><span class="linenos"> 31</span></a><span class="sd">        engines and markets if flag _loadinfo is `True`</span>
+</span><span id="MoexImporter.__init__-31"><a href="#MoexImporter.__init__-31"><span class="linenos"> 31</span></a><span class="sd">        engines and markets if flag `_loadinfo` is `True`</span>
 </span><span id="MoexImporter.__init__-32"><a href="#MoexImporter.__init__-32"><span class="linenos"> 32</span></a><span class="sd">        </span>
 </span><span id="MoexImporter.__init__-33"><a href="#MoexImporter.__init__-33"><span class="linenos"> 33</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter.__init__-34"><a href="#MoexImporter.__init__-34"><span class="linenos"> 34</span></a><span class="sd">        ----------</span>
@@ -1469,15 +1469,17 @@ request securities lists and quotes.</p>
 
 
             <div class="docstring"><p>Class constructor initializes base variables and load information about
-engines and markets if flag _loadinfo is <code>True</code></p>
+engines and markets if flag <code>_loadinfo</code> is <code>True</code></p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_header : dict, optional
-    HTTP-header for all requests to MOEX ISS API.
-_loadinfo: boolean, optional
-    If True, engines and markets lists are requested from MOEX ISS. You may get
-    this information later with methods getEngines and getMarkets.</p>
+<ul>
+<li><strong>_header</strong> (dict, optional):
+HTTP-header for all requests to MOEX ISS API.</li>
+<li><strong>_loadinfo</strong> (boolean, optional):
+If True, engines and markets lists are requested from MOEX ISS. You may get
+this information later with methods getEngines and getMarkets.</li>
+</ul>
 </div>
 
 
@@ -1605,10 +1607,11 @@ _loadinfo: boolean, optional
 
             <div class="docstring"><p>Returns the list of engines.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of engines.</p>
+<ul>
+<li><strong>array_like</strong>: List of engines.</li>
+</ul>
 </div>
 
 
@@ -1658,15 +1661,18 @@ _loadinfo: boolean, optional
 
             <div class="docstring"><p>Returns the list of markets.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_engine: str
-    The engine string identifier to get markets list.</p>
+<ul>
+<li><strong>_engine</strong> (str):
+The engine string identifier to get markets list.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of markets for the specific _engine.</p>
+<ul>
+<li><strong>array_like</strong>: List of markets for the specific _engine.</li>
+</ul>
 </div>
 
 
@@ -1711,15 +1717,18 @@ _loadinfo: boolean, optional
 
             <div class="docstring"><p>Returns the specific data for the security.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_seccode: str
-    Security ticker.</p>
+<ul>
+<li><strong>_seccode</strong> (str):
+Security ticker.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of specific data for _seccode.</p>
+<ul>
+<li><strong>array_like</strong>: List of specific data for _seccode.</li>
+</ul>
 </div>
 
 
@@ -1736,12 +1745,12 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.searchForSecurity"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.searchForSecurity-345"><a href="#MoexImporter.searchForSecurity-345"><span class="linenos">345</span></a>    <span class="k">def</span> <span class="nf">searchForSecurity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="MoexImporter.searchForSecurity-346"><a href="#MoexImporter.searchForSecurity-346"><span class="linenos">346</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="MoexImporter.searchForSecurity-346"><a href="#MoexImporter.searchForSecurity-346"><span class="linenos">346</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="MoexImporter.searchForSecurity-347"><a href="#MoexImporter.searchForSecurity-347"><span class="linenos">347</span></a><span class="sd">        </span>
 </span><span id="MoexImporter.searchForSecurity-348"><a href="#MoexImporter.searchForSecurity-348"><span class="linenos">348</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter.searchForSecurity-349"><a href="#MoexImporter.searchForSecurity-349"><span class="linenos">349</span></a><span class="sd">        ----------</span>
 </span><span id="MoexImporter.searchForSecurity-350"><a href="#MoexImporter.searchForSecurity-350"><span class="linenos">350</span></a><span class="sd">        _secpart: str</span>
-</span><span id="MoexImporter.searchForSecurity-351"><a href="#MoexImporter.searchForSecurity-351"><span class="linenos">351</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="MoexImporter.searchForSecurity-351"><a href="#MoexImporter.searchForSecurity-351"><span class="linenos">351</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="MoexImporter.searchForSecurity-352"><a href="#MoexImporter.searchForSecurity-352"><span class="linenos">352</span></a>
 </span><span id="MoexImporter.searchForSecurity-353"><a href="#MoexImporter.searchForSecurity-353"><span class="linenos">353</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.searchForSecurity-354"><a href="#MoexImporter.searchForSecurity-354"><span class="linenos">354</span></a><span class="sd">        -------</span>
@@ -1760,17 +1769,20 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all securities with the specific <code>_secpart</code> of the name or ticker.</p>
+            <div class="docstring"><p>Returns the list of all securities with the specific <code>_secpart</code> of the name or ticker.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_secpart: str
-    Part the security name or ticker.</p>
+<ul>
+<li><strong>_secpart</strong> (str):
+Part of the security name or ticker.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -1787,12 +1799,12 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.searchForSecurityTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.searchForSecurityTraded-368"><a href="#MoexImporter.searchForSecurityTraded-368"><span class="linenos">368</span></a>    <span class="k">def</span> <span class="nf">searchForSecurityTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="MoexImporter.searchForSecurityTraded-369"><a href="#MoexImporter.searchForSecurityTraded-369"><span class="linenos">369</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of traded securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="MoexImporter.searchForSecurityTraded-369"><a href="#MoexImporter.searchForSecurityTraded-369"><span class="linenos">369</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of traded securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="MoexImporter.searchForSecurityTraded-370"><a href="#MoexImporter.searchForSecurityTraded-370"><span class="linenos">370</span></a><span class="sd">        </span>
 </span><span id="MoexImporter.searchForSecurityTraded-371"><a href="#MoexImporter.searchForSecurityTraded-371"><span class="linenos">371</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter.searchForSecurityTraded-372"><a href="#MoexImporter.searchForSecurityTraded-372"><span class="linenos">372</span></a><span class="sd">        ----------</span>
 </span><span id="MoexImporter.searchForSecurityTraded-373"><a href="#MoexImporter.searchForSecurityTraded-373"><span class="linenos">373</span></a><span class="sd">        _secpart: str</span>
-</span><span id="MoexImporter.searchForSecurityTraded-374"><a href="#MoexImporter.searchForSecurityTraded-374"><span class="linenos">374</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="MoexImporter.searchForSecurityTraded-374"><a href="#MoexImporter.searchForSecurityTraded-374"><span class="linenos">374</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="MoexImporter.searchForSecurityTraded-375"><a href="#MoexImporter.searchForSecurityTraded-375"><span class="linenos">375</span></a>
 </span><span id="MoexImporter.searchForSecurityTraded-376"><a href="#MoexImporter.searchForSecurityTraded-376"><span class="linenos">376</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.searchForSecurityTraded-377"><a href="#MoexImporter.searchForSecurityTraded-377"><span class="linenos">377</span></a><span class="sd">        -------</span>
@@ -1811,17 +1823,20 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of traded securities with the specific <code>_secpart</code> of the name or ticker.</p>
+            <div class="docstring"><p>Returns the list of traded securities with the specific <code>_secpart</code> of the name or ticker.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_secpart: str
-    Part the security name or ticker.</p>
+<ul>
+<li><strong>_secpart</strong> (str):
+Part of the security name or ticker.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -1838,12 +1853,12 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.searchForSecurityNonTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.searchForSecurityNonTraded-391"><a href="#MoexImporter.searchForSecurityNonTraded-391"><span class="linenos">391</span></a>    <span class="k">def</span> <span class="nf">searchForSecurityNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_secpart</span><span class="p">):</span>
-</span><span id="MoexImporter.searchForSecurityNonTraded-392"><a href="#MoexImporter.searchForSecurityNonTraded-392"><span class="linenos">392</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of non-traded securities with the specific `_secpart` of the name or ticker.</span>
+</span><span id="MoexImporter.searchForSecurityNonTraded-392"><a href="#MoexImporter.searchForSecurityNonTraded-392"><span class="linenos">392</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of non-traded securities with the specific `_secpart` of the name or ticker.</span>
 </span><span id="MoexImporter.searchForSecurityNonTraded-393"><a href="#MoexImporter.searchForSecurityNonTraded-393"><span class="linenos">393</span></a><span class="sd">        </span>
 </span><span id="MoexImporter.searchForSecurityNonTraded-394"><a href="#MoexImporter.searchForSecurityNonTraded-394"><span class="linenos">394</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexImporter.searchForSecurityNonTraded-395"><a href="#MoexImporter.searchForSecurityNonTraded-395"><span class="linenos">395</span></a><span class="sd">        ----------</span>
 </span><span id="MoexImporter.searchForSecurityNonTraded-396"><a href="#MoexImporter.searchForSecurityNonTraded-396"><span class="linenos">396</span></a><span class="sd">        _secpart: str</span>
-</span><span id="MoexImporter.searchForSecurityNonTraded-397"><a href="#MoexImporter.searchForSecurityNonTraded-397"><span class="linenos">397</span></a><span class="sd">            Part the security name or ticker.</span>
+</span><span id="MoexImporter.searchForSecurityNonTraded-397"><a href="#MoexImporter.searchForSecurityNonTraded-397"><span class="linenos">397</span></a><span class="sd">            Part of the security name or ticker.</span>
 </span><span id="MoexImporter.searchForSecurityNonTraded-398"><a href="#MoexImporter.searchForSecurityNonTraded-398"><span class="linenos">398</span></a>
 </span><span id="MoexImporter.searchForSecurityNonTraded-399"><a href="#MoexImporter.searchForSecurityNonTraded-399"><span class="linenos">399</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.searchForSecurityNonTraded-400"><a href="#MoexImporter.searchForSecurityNonTraded-400"><span class="linenos">400</span></a><span class="sd">        -------</span>
@@ -1862,17 +1877,20 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of non-traded securities with the specific <code>_secpart</code> of the name or ticker.</p>
+            <div class="docstring"><p>Returns the list of non-traded securities with the specific <code>_secpart</code> of the name or ticker.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_secpart: str
-    Part the security name or ticker.</p>
+<ul>
+<li><strong>_secpart</strong> (str):
+Part of the security name or ticker.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -1889,7 +1907,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getSecuritiesAll"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getSecuritiesAll-414"><a href="#MoexImporter.getSecuritiesAll-414"><span class="linenos">414</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getSecuritiesAll-415"><a href="#MoexImporter.getSecuritiesAll-415"><span class="linenos">415</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all securities.</span>
+</span><span id="MoexImporter.getSecuritiesAll-415"><a href="#MoexImporter.getSecuritiesAll-415"><span class="linenos">415</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all securities.</span>
 </span><span id="MoexImporter.getSecuritiesAll-416"><a href="#MoexImporter.getSecuritiesAll-416"><span class="linenos">416</span></a>
 </span><span id="MoexImporter.getSecuritiesAll-417"><a href="#MoexImporter.getSecuritiesAll-417"><span class="linenos">417</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getSecuritiesAll-418"><a href="#MoexImporter.getSecuritiesAll-418"><span class="linenos">418</span></a><span class="sd">        -------</span>
@@ -1905,12 +1923,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all securities.</p>
+            <div class="docstring"><p>Returns the list of all securities.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -1927,7 +1946,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getSecuritiesAllTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getSecuritiesAllTraded-429"><a href="#MoexImporter.getSecuritiesAllTraded-429"><span class="linenos">429</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getSecuritiesAllTraded-430"><a href="#MoexImporter.getSecuritiesAllTraded-430"><span class="linenos">430</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of traded securities.</span>
+</span><span id="MoexImporter.getSecuritiesAllTraded-430"><a href="#MoexImporter.getSecuritiesAllTraded-430"><span class="linenos">430</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of traded securities.</span>
 </span><span id="MoexImporter.getSecuritiesAllTraded-431"><a href="#MoexImporter.getSecuritiesAllTraded-431"><span class="linenos">431</span></a>
 </span><span id="MoexImporter.getSecuritiesAllTraded-432"><a href="#MoexImporter.getSecuritiesAllTraded-432"><span class="linenos">432</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getSecuritiesAllTraded-433"><a href="#MoexImporter.getSecuritiesAllTraded-433"><span class="linenos">433</span></a><span class="sd">        -------</span>
@@ -1943,12 +1962,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of traded securities.</p>
+            <div class="docstring"><p>Returns the list of traded securities.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -1965,7 +1985,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getSecuritiesAllNonTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getSecuritiesAllNonTraded-444"><a href="#MoexImporter.getSecuritiesAllNonTraded-444"><span class="linenos">444</span></a>    <span class="k">def</span> <span class="nf">getSecuritiesAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getSecuritiesAllNonTraded-445"><a href="#MoexImporter.getSecuritiesAllNonTraded-445"><span class="linenos">445</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of non-traded securities.</span>
+</span><span id="MoexImporter.getSecuritiesAllNonTraded-445"><a href="#MoexImporter.getSecuritiesAllNonTraded-445"><span class="linenos">445</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of non-traded securities.</span>
 </span><span id="MoexImporter.getSecuritiesAllNonTraded-446"><a href="#MoexImporter.getSecuritiesAllNonTraded-446"><span class="linenos">446</span></a>
 </span><span id="MoexImporter.getSecuritiesAllNonTraded-447"><a href="#MoexImporter.getSecuritiesAllNonTraded-447"><span class="linenos">447</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getSecuritiesAllNonTraded-448"><a href="#MoexImporter.getSecuritiesAllNonTraded-448"><span class="linenos">448</span></a><span class="sd">        -------</span>
@@ -1981,12 +2001,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of non-traded securities.</p>
+            <div class="docstring"><p>Returns the list of non-traded securities.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2003,7 +2024,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getBondsAll"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getBondsAll-459"><a href="#MoexImporter.getBondsAll-459"><span class="linenos">459</span></a>    <span class="k">def</span> <span class="nf">getBondsAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getBondsAll-460"><a href="#MoexImporter.getBondsAll-460"><span class="linenos">460</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all local bonds.</span>
+</span><span id="MoexImporter.getBondsAll-460"><a href="#MoexImporter.getBondsAll-460"><span class="linenos">460</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all local bonds.</span>
 </span><span id="MoexImporter.getBondsAll-461"><a href="#MoexImporter.getBondsAll-461"><span class="linenos">461</span></a>
 </span><span id="MoexImporter.getBondsAll-462"><a href="#MoexImporter.getBondsAll-462"><span class="linenos">462</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getBondsAll-463"><a href="#MoexImporter.getBondsAll-463"><span class="linenos">463</span></a><span class="sd">        -------</span>
@@ -2020,12 +2041,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all local bonds.</p>
+            <div class="docstring"><p>Returns the list of all local bonds.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2042,7 +2064,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getBondsAllTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getBondsAllTraded-475"><a href="#MoexImporter.getBondsAllTraded-475"><span class="linenos">475</span></a>    <span class="k">def</span> <span class="nf">getBondsAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getBondsAllTraded-476"><a href="#MoexImporter.getBondsAllTraded-476"><span class="linenos">476</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all traded local bonds.</span>
+</span><span id="MoexImporter.getBondsAllTraded-476"><a href="#MoexImporter.getBondsAllTraded-476"><span class="linenos">476</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all traded local bonds.</span>
 </span><span id="MoexImporter.getBondsAllTraded-477"><a href="#MoexImporter.getBondsAllTraded-477"><span class="linenos">477</span></a>
 </span><span id="MoexImporter.getBondsAllTraded-478"><a href="#MoexImporter.getBondsAllTraded-478"><span class="linenos">478</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getBondsAllTraded-479"><a href="#MoexImporter.getBondsAllTraded-479"><span class="linenos">479</span></a><span class="sd">        -------</span>
@@ -2059,12 +2081,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all traded local bonds.</p>
+            <div class="docstring"><p>Returns the list of all traded local bonds.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2081,7 +2104,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getBondsAllNonTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getBondsAllNonTraded-491"><a href="#MoexImporter.getBondsAllNonTraded-491"><span class="linenos">491</span></a>    <span class="k">def</span> <span class="nf">getBondsAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getBondsAllNonTraded-492"><a href="#MoexImporter.getBondsAllNonTraded-492"><span class="linenos">492</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all non-traded local bonds.</span>
+</span><span id="MoexImporter.getBondsAllNonTraded-492"><a href="#MoexImporter.getBondsAllNonTraded-492"><span class="linenos">492</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all non-traded local bonds.</span>
 </span><span id="MoexImporter.getBondsAllNonTraded-493"><a href="#MoexImporter.getBondsAllNonTraded-493"><span class="linenos">493</span></a>
 </span><span id="MoexImporter.getBondsAllNonTraded-494"><a href="#MoexImporter.getBondsAllNonTraded-494"><span class="linenos">494</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getBondsAllNonTraded-495"><a href="#MoexImporter.getBondsAllNonTraded-495"><span class="linenos">495</span></a><span class="sd">        -------</span>
@@ -2098,12 +2121,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all non-traded local bonds.</p>
+            <div class="docstring"><p>Returns the list of all non-traded local bonds.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2120,7 +2144,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getSharesAll"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getSharesAll-507"><a href="#MoexImporter.getSharesAll-507"><span class="linenos">507</span></a>    <span class="k">def</span> <span class="nf">getSharesAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getSharesAll-508"><a href="#MoexImporter.getSharesAll-508"><span class="linenos">508</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all local shares.</span>
+</span><span id="MoexImporter.getSharesAll-508"><a href="#MoexImporter.getSharesAll-508"><span class="linenos">508</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all local shares.</span>
 </span><span id="MoexImporter.getSharesAll-509"><a href="#MoexImporter.getSharesAll-509"><span class="linenos">509</span></a>
 </span><span id="MoexImporter.getSharesAll-510"><a href="#MoexImporter.getSharesAll-510"><span class="linenos">510</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getSharesAll-511"><a href="#MoexImporter.getSharesAll-511"><span class="linenos">511</span></a><span class="sd">        -------</span>
@@ -2136,12 +2160,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all local shares.</p>
+            <div class="docstring"><p>Returns the list of all local shares.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2158,7 +2183,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getSharesAllTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getSharesAllTraded-522"><a href="#MoexImporter.getSharesAllTraded-522"><span class="linenos">522</span></a>    <span class="k">def</span> <span class="nf">getSharesAllTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getSharesAllTraded-523"><a href="#MoexImporter.getSharesAllTraded-523"><span class="linenos">523</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all traded local shares.</span>
+</span><span id="MoexImporter.getSharesAllTraded-523"><a href="#MoexImporter.getSharesAllTraded-523"><span class="linenos">523</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all traded local shares.</span>
 </span><span id="MoexImporter.getSharesAllTraded-524"><a href="#MoexImporter.getSharesAllTraded-524"><span class="linenos">524</span></a>
 </span><span id="MoexImporter.getSharesAllTraded-525"><a href="#MoexImporter.getSharesAllTraded-525"><span class="linenos">525</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getSharesAllTraded-526"><a href="#MoexImporter.getSharesAllTraded-526"><span class="linenos">526</span></a><span class="sd">        -------</span>
@@ -2174,12 +2199,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all traded local shares.</p>
+            <div class="docstring"><p>Returns the list of all traded local shares.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2196,7 +2222,7 @@ _loadinfo: boolean, optional
     </div>
     <a class="headerlink" href="#MoexImporter.getSharesAllNonTraded"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="MoexImporter.getSharesAllNonTraded-537"><a href="#MoexImporter.getSharesAllNonTraded-537"><span class="linenos">537</span></a>    <span class="k">def</span> <span class="nf">getSharesAllNonTraded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="MoexImporter.getSharesAllNonTraded-538"><a href="#MoexImporter.getSharesAllNonTraded-538"><span class="linenos">538</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns list of all non-traded local shares.</span>
+</span><span id="MoexImporter.getSharesAllNonTraded-538"><a href="#MoexImporter.getSharesAllNonTraded-538"><span class="linenos">538</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the list of all non-traded local shares.</span>
 </span><span id="MoexImporter.getSharesAllNonTraded-539"><a href="#MoexImporter.getSharesAllNonTraded-539"><span class="linenos">539</span></a>
 </span><span id="MoexImporter.getSharesAllNonTraded-540"><a href="#MoexImporter.getSharesAllNonTraded-540"><span class="linenos">540</span></a><span class="sd">        Returns</span>
 </span><span id="MoexImporter.getSharesAllNonTraded-541"><a href="#MoexImporter.getSharesAllNonTraded-541"><span class="linenos">541</span></a><span class="sd">        -------</span>
@@ -2212,12 +2238,13 @@ _loadinfo: boolean, optional
 </span></pre></div>
 
 
-            <div class="docstring"><p>Returns list of all non-traded local shares.</p>
+            <div class="docstring"><p>Returns the list of all non-traded local shares.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of securities.</p>
+<ul>
+<li><strong>array_like</strong>: List of securities.</li>
+</ul>
 </div>
 
 
@@ -2288,31 +2315,34 @@ _loadinfo: boolean, optional
 
             <div class="docstring"><p>Returns quotes for the specific security.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>_engine: str
-    Specify engine for quotes.
-_market: str
-    Specify market for quotes.
-_board: str
-    Specify board for quotes.
-_seccode: str
-    Security ticker.
-_from: date
-    Left bound of daterange for quotes.
-_till: date
-    Right bound of daterange for quotes.
-_tsession: MoexSessions
-    Specify trading session for quotes.
-_start: int
-    Specify cursor for query. MOEX ISS returns only
-    limited number of quotes per request. You have to
-    shift the cursor to get the next portion.</p>
+<ul>
+<li><strong>_engine</strong> (str):
+Specify engine for quotes.</li>
+<li><strong>_market</strong> (str):
+Specify market for quotes.</li>
+<li><strong>_board</strong> (str):
+Specify board for quotes.</li>
+<li><strong>_seccode</strong> (str):
+Security ticker.</li>
+<li><strong>_from</strong> (date):
+Left bound of daterange for quotes.</li>
+<li><strong>_till</strong> (date):
+Right bound of daterange for quotes.</li>
+<li><strong>_tsession</strong> (MoexSessions):
+Specify trading session for quotes.</li>
+<li><strong>_start</strong> (int):
+Specify cursor for query. MOEX ISS returns only
+limited number of quotes per request. You have to
+shift the cursor to get the next portion.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>array_like
-    List of quotes.</p>
+<ul>
+<li><strong>array_like</strong>: List of quotes.</li>
+</ul>
 </div>
 
 

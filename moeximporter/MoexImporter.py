@@ -27,7 +27,7 @@ class MoexImporter:
             _loadinfo = False
         ):
         """Class constructor initializes base variables and load information about
-        engines and markets if flag _loadinfo is `True`
+        engines and markets if flag `_loadinfo` is `True`
         
         Parameters
         ----------

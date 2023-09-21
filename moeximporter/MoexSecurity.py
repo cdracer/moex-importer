@@ -18,12 +18,12 @@ class MoexSecurity:
         
         Parameters
         ----------
-            _seccode: str
-                Security ticker from MOEX.
-            _mi: MoexImporter
-                The object of MoexImporter that was
-                created before. You can't use the class
-                without this object.
+        _seccode: str
+            Security ticker from MOEX.
+        _mi: MoexImporter
+            The object of MoexImporter that was
+            created before. You can't use the class
+            without this object.
         """
         self.seccode = _seccode
         self.shortname = None
@@ -70,32 +70,32 @@ class MoexSecurity:
         
         Parameters
         ----------
-            _dtf: date
-                The left bound of the range to request quotes.
-            _dtt: date
-                The right bound of the range to request quotes.
-            _board: str, optional
-                Request quotes for the specific board. The primary board
-                is used if the parameter is ommited. You can check
-                class attribute `boards` to get all available boards.
-            _ts: MoexSessions, optional
-                Request quotes for the specific session. The main session
-                is used if the parameter is ommited.
+        _dtf: date
+            The left bound of the range to request quotes.
+        _dtt: date
+            The right bound of the range to request quotes.
+        _board: str, optional
+            Request quotes for the specific board. The primary board
+            is used if the parameter is ommited. You can check
+            class attribute `boards` to get all available boards.
+        _ts: MoexSessions, optional
+            Request quotes for the specific session. The main session
+            is used if the parameter is ommited.
 
         Returns
         --------
-            pd.DataFrame:
-                Quotes as pandas dataframe.
-                Columns:
-                'TRADEDATE' - date of the quote,
-                'OPEN' - open price,
-                'HIGH' - high price,
-                'LOW' - low price,
-                'CLOSE' - last price,
-                'YIELD' - yield to maturity, may be None for non-bonds,
-                'DURATION' - duration in days, may be None for non-bonds,
-                'VALUE' - trading value in rubles,
-                'QUANTITY' - trading value in securities.
+        pd.DataFrame
+            Quotes as pandas dataframe.
+            Columns:
+            'TRADEDATE' - date of the quote,
+            'OPEN' - open price,
+            'HIGH' - high price,
+            'LOW' - low price,
+            'CLOSE' - last price,
+            'YIELD' - yield to maturity, may be None for non-bonds,
+            'DURATION' - duration in days, may be None for non-bonds,
+            'VALUE' - trading value in rubles,
+            'QUANTITY' - trading value in securities.
         """
         _res = None
         try:
@@ -112,32 +112,32 @@ class MoexSecurity:
         
         Parameters
         ----------
-            _dtf: date
-                The left bound of the range to request quotes.
-            _dtt: date
-                The right bound of the range to request quotes.
-            _board: str, optional
-                Request quotes for the specific board. The primary board
-                is used if the parameter is ommited. You can check
-                class attribute `boards` to get all available boards.
-            _ts: MoexSessions, optional
-                Request quotes for the specific session. The main session
-                is used if the parameter is ommited.
+        _dtf: date
+            The left bound of the range to request quotes.
+        _dtt: date
+            The right bound of the range to request quotes.
+        _board: str, optional
+            Request quotes for the specific board. The primary board
+            is used if the parameter is ommited. You can check
+            class attribute `boards` to get all available boards.
+        _ts: MoexSessions, optional
+            Request quotes for the specific session. The main session
+            is used if the parameter is ommited.
 
         Returns
         --------
-            array_like:
-                Quotes as an array of dicts.
-                Dict keys:
-                'TRADEDATE' - date of the quote,
-                'OPEN' - open price,
-                'HIGH' - high price,
-                'LOW' - low price,
-                'CLOSE' - last price,
-                'YIELD' - yield to maturity, may be None for non-bonds,
-                'DURATION' - duration in days, may be None for non-bonds,
-                'VALUE' - trading value in rubles,
-                'QUANTITY' - trading value in securities.
+        array_like
+            Quotes as an array of dicts.
+            Dict keys:
+            'TRADEDATE' - date of the quote,
+            'OPEN' - open price,
+            'HIGH' - high price,
+            'LOW' - low price,
+            'CLOSE' - last price,
+            'YIELD' - yield to maturity, may be None for non-bonds,
+            'DURATION' - duration in days, may be None for non-bonds,
+            'VALUE' - trading value in rubles,
+            'QUANTITY' - trading value in securities.
         """
         _res = []
         if isinstance(self.mi, MoexImporter):

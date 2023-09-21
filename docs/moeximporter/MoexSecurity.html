@@ -107,12 +107,12 @@
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="sd">        </span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="sd">        Parameters</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="sd">        ----------</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">            _seccode: str</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">                Security ticker from MOEX.</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">            _mi: MoexImporter</span>
-</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="sd">                The object of MoexImporter that was</span>
-</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="sd">                created before. You can&#39;t use the class</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a><span class="sd">                without this object.</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">        _seccode: str</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">            Security ticker from MOEX.</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">        _mi: MoexImporter</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a><span class="sd">            The object of MoexImporter that was</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="sd">            created before. You can&#39;t use the class</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a><span class="sd">            without this object.</span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">seccode</span> <span class="o">=</span> <span class="n">_seccode</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shortname</span> <span class="o">=</span> <span class="kc">None</span>
@@ -159,32 +159,32 @@
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">        </span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">        Parameters</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">        ----------</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">            _dtf: date</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">                The left bound of the range to request quotes.</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">            _dtt: date</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">                The right boun of the range to request quotes.</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">            _board: str, optional</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">                Request quotes for the specific board. The primary board</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">                is used if the parameter is ommited. You can check</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">                class attribute `boards` to get all available boards.</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">            _ts: MoexSessions, optional</span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">                Request quotes for the specific session. The main session</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">                is used if the parameter is ommited.</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">        _dtf: date</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">            The left bound of the range to request quotes.</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">        _dtt: date</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">            The right bound of the range to request quotes.</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">        _board: str, optional</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">            Request quotes for the specific board. The primary board</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">            is used if the parameter is ommited. You can check</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">            class attribute `boards` to get all available boards.</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">        _ts: MoexSessions, optional</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">            Request quotes for the specific session. The main session</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">            is used if the parameter is ommited.</span>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        Returns</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">        --------</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">            pd.DataFrame:</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">                Quotes as pandas dataframe.</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">                Columns:</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">                &#39;TRADEDATE&#39; - date of the quote,</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">                &#39;OPEN&#39; - open price,</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">                &#39;HIGH&#39; - high price,</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">                &#39;LOW&#39; - low price,</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">                &#39;CLOSE&#39; - last price,</span>
-</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">                &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">                &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">                &#39;VALUE&#39; - trading value in rubles,</span>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">                &#39;QUANTITY&#39; - trading value in securities.</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">        pd.DataFrame</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">            Quotes as pandas dataframe.</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">            Columns:</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">            &#39;TRADEDATE&#39; - date of the quote,</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">            &#39;OPEN&#39; - open price,</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">            &#39;HIGH&#39; - high price,</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a><span class="sd">            &#39;LOW&#39; - low price,</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">            &#39;CLOSE&#39; - last price,</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">            &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">            &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">            &#39;VALUE&#39; - trading value in rubles,</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">            &#39;QUANTITY&#39; - trading value in securities.</span>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>        <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>        <span class="k">try</span><span class="p">:</span>
@@ -201,32 +201,32 @@
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">        </span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">        Parameters</span>
 </span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a><span class="sd">        ----------</span>
-</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">            _dtf: date</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="sd">                The left bound of the range to request quotes.</span>
-</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a><span class="sd">            _dtt: date</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">                The right boun of the range to request quotes.</span>
-</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a><span class="sd">            _board: str, optional</span>
-</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a><span class="sd">                Request quotes for the specific board. The primary board</span>
-</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="sd">                is used if the parameter is ommited. You can check</span>
-</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a><span class="sd">                class attribute `boards` to get all available boards.</span>
-</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="sd">            _ts: MoexSessions, optional</span>
-</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a><span class="sd">                Request quotes for the specific session. The main session</span>
-</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="sd">                is used if the parameter is ommited.</span>
+</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">        _dtf: date</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="sd">            The left bound of the range to request quotes.</span>
+</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a><span class="sd">        _dtt: date</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">            The right bound of the range to request quotes.</span>
+</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a><span class="sd">        _board: str, optional</span>
+</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a><span class="sd">            Request quotes for the specific board. The primary board</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="sd">            is used if the parameter is ommited. You can check</span>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a><span class="sd">            class attribute `boards` to get all available boards.</span>
+</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="sd">        _ts: MoexSessions, optional</span>
+</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a><span class="sd">            Request quotes for the specific session. The main session</span>
+</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="sd">            is used if the parameter is ommited.</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a><span class="sd">        Returns</span>
 </span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="sd">        --------</span>
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a><span class="sd">            array_like:</span>
-</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a><span class="sd">                Quotes as an array of dicts.</span>
-</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="sd">                Dict keys:</span>
-</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="sd">                &#39;TRADEDATE&#39; - date of the quote,</span>
-</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">                &#39;OPEN&#39; - open price,</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a><span class="sd">                &#39;HIGH&#39; - high price,</span>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="sd">                &#39;LOW&#39; - low price,</span>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="sd">                &#39;CLOSE&#39; - last price,</span>
-</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a><span class="sd">                &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
-</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="sd">                &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
-</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">                &#39;VALUE&#39; - trading value in rubles,</span>
-</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">                &#39;QUANTITY&#39; - trading value in securities.</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a><span class="sd">        array_like</span>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a><span class="sd">            Quotes as an array of dicts.</span>
+</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="sd">            Dict keys:</span>
+</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a><span class="sd">            &#39;TRADEDATE&#39; - date of the quote,</span>
+</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">            &#39;OPEN&#39; - open price,</span>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a><span class="sd">            &#39;HIGH&#39; - high price,</span>
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="sd">            &#39;LOW&#39; - low price,</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="sd">            &#39;CLOSE&#39; - last price,</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a><span class="sd">            &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="sd">            &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
+</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">            &#39;VALUE&#39; - trading value in rubles,</span>
+</span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a><span class="sd">            &#39;QUANTITY&#39; - trading value in securities.</span>
 </span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>        <span class="n">_res</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mi</span><span class="p">,</span> <span class="n">MoexImporter</span><span class="p">):</span>
@@ -307,12 +307,12 @@
 </span><span id="MoexSecurity-19"><a href="#MoexSecurity-19"><span class="linenos"> 19</span></a><span class="sd">        </span>
 </span><span id="MoexSecurity-20"><a href="#MoexSecurity-20"><span class="linenos"> 20</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexSecurity-21"><a href="#MoexSecurity-21"><span class="linenos"> 21</span></a><span class="sd">        ----------</span>
-</span><span id="MoexSecurity-22"><a href="#MoexSecurity-22"><span class="linenos"> 22</span></a><span class="sd">            _seccode: str</span>
-</span><span id="MoexSecurity-23"><a href="#MoexSecurity-23"><span class="linenos"> 23</span></a><span class="sd">                Security ticker from MOEX.</span>
-</span><span id="MoexSecurity-24"><a href="#MoexSecurity-24"><span class="linenos"> 24</span></a><span class="sd">            _mi: MoexImporter</span>
-</span><span id="MoexSecurity-25"><a href="#MoexSecurity-25"><span class="linenos"> 25</span></a><span class="sd">                The object of MoexImporter that was</span>
-</span><span id="MoexSecurity-26"><a href="#MoexSecurity-26"><span class="linenos"> 26</span></a><span class="sd">                created before. You can&#39;t use the class</span>
-</span><span id="MoexSecurity-27"><a href="#MoexSecurity-27"><span class="linenos"> 27</span></a><span class="sd">                without this object.</span>
+</span><span id="MoexSecurity-22"><a href="#MoexSecurity-22"><span class="linenos"> 22</span></a><span class="sd">        _seccode: str</span>
+</span><span id="MoexSecurity-23"><a href="#MoexSecurity-23"><span class="linenos"> 23</span></a><span class="sd">            Security ticker from MOEX.</span>
+</span><span id="MoexSecurity-24"><a href="#MoexSecurity-24"><span class="linenos"> 24</span></a><span class="sd">        _mi: MoexImporter</span>
+</span><span id="MoexSecurity-25"><a href="#MoexSecurity-25"><span class="linenos"> 25</span></a><span class="sd">            The object of MoexImporter that was</span>
+</span><span id="MoexSecurity-26"><a href="#MoexSecurity-26"><span class="linenos"> 26</span></a><span class="sd">            created before. You can&#39;t use the class</span>
+</span><span id="MoexSecurity-27"><a href="#MoexSecurity-27"><span class="linenos"> 27</span></a><span class="sd">            without this object.</span>
 </span><span id="MoexSecurity-28"><a href="#MoexSecurity-28"><span class="linenos"> 28</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MoexSecurity-29"><a href="#MoexSecurity-29"><span class="linenos"> 29</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">seccode</span> <span class="o">=</span> <span class="n">_seccode</span>
 </span><span id="MoexSecurity-30"><a href="#MoexSecurity-30"><span class="linenos"> 30</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shortname</span> <span class="o">=</span> <span class="kc">None</span>
@@ -359,32 +359,32 @@
 </span><span id="MoexSecurity-71"><a href="#MoexSecurity-71"><span class="linenos"> 71</span></a><span class="sd">        </span>
 </span><span id="MoexSecurity-72"><a href="#MoexSecurity-72"><span class="linenos"> 72</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexSecurity-73"><a href="#MoexSecurity-73"><span class="linenos"> 73</span></a><span class="sd">        ----------</span>
-</span><span id="MoexSecurity-74"><a href="#MoexSecurity-74"><span class="linenos"> 74</span></a><span class="sd">            _dtf: date</span>
-</span><span id="MoexSecurity-75"><a href="#MoexSecurity-75"><span class="linenos"> 75</span></a><span class="sd">                The left bound of the range to request quotes.</span>
-</span><span id="MoexSecurity-76"><a href="#MoexSecurity-76"><span class="linenos"> 76</span></a><span class="sd">            _dtt: date</span>
-</span><span id="MoexSecurity-77"><a href="#MoexSecurity-77"><span class="linenos"> 77</span></a><span class="sd">                The right boun of the range to request quotes.</span>
-</span><span id="MoexSecurity-78"><a href="#MoexSecurity-78"><span class="linenos"> 78</span></a><span class="sd">            _board: str, optional</span>
-</span><span id="MoexSecurity-79"><a href="#MoexSecurity-79"><span class="linenos"> 79</span></a><span class="sd">                Request quotes for the specific board. The primary board</span>
-</span><span id="MoexSecurity-80"><a href="#MoexSecurity-80"><span class="linenos"> 80</span></a><span class="sd">                is used if the parameter is ommited. You can check</span>
-</span><span id="MoexSecurity-81"><a href="#MoexSecurity-81"><span class="linenos"> 81</span></a><span class="sd">                class attribute `boards` to get all available boards.</span>
-</span><span id="MoexSecurity-82"><a href="#MoexSecurity-82"><span class="linenos"> 82</span></a><span class="sd">            _ts: MoexSessions, optional</span>
-</span><span id="MoexSecurity-83"><a href="#MoexSecurity-83"><span class="linenos"> 83</span></a><span class="sd">                Request quotes for the specific session. The main session</span>
-</span><span id="MoexSecurity-84"><a href="#MoexSecurity-84"><span class="linenos"> 84</span></a><span class="sd">                is used if the parameter is ommited.</span>
+</span><span id="MoexSecurity-74"><a href="#MoexSecurity-74"><span class="linenos"> 74</span></a><span class="sd">        _dtf: date</span>
+</span><span id="MoexSecurity-75"><a href="#MoexSecurity-75"><span class="linenos"> 75</span></a><span class="sd">            The left bound of the range to request quotes.</span>
+</span><span id="MoexSecurity-76"><a href="#MoexSecurity-76"><span class="linenos"> 76</span></a><span class="sd">        _dtt: date</span>
+</span><span id="MoexSecurity-77"><a href="#MoexSecurity-77"><span class="linenos"> 77</span></a><span class="sd">            The right bound of the range to request quotes.</span>
+</span><span id="MoexSecurity-78"><a href="#MoexSecurity-78"><span class="linenos"> 78</span></a><span class="sd">        _board: str, optional</span>
+</span><span id="MoexSecurity-79"><a href="#MoexSecurity-79"><span class="linenos"> 79</span></a><span class="sd">            Request quotes for the specific board. The primary board</span>
+</span><span id="MoexSecurity-80"><a href="#MoexSecurity-80"><span class="linenos"> 80</span></a><span class="sd">            is used if the parameter is ommited. You can check</span>
+</span><span id="MoexSecurity-81"><a href="#MoexSecurity-81"><span class="linenos"> 81</span></a><span class="sd">            class attribute `boards` to get all available boards.</span>
+</span><span id="MoexSecurity-82"><a href="#MoexSecurity-82"><span class="linenos"> 82</span></a><span class="sd">        _ts: MoexSessions, optional</span>
+</span><span id="MoexSecurity-83"><a href="#MoexSecurity-83"><span class="linenos"> 83</span></a><span class="sd">            Request quotes for the specific session. The main session</span>
+</span><span id="MoexSecurity-84"><a href="#MoexSecurity-84"><span class="linenos"> 84</span></a><span class="sd">            is used if the parameter is ommited.</span>
 </span><span id="MoexSecurity-85"><a href="#MoexSecurity-85"><span class="linenos"> 85</span></a>
 </span><span id="MoexSecurity-86"><a href="#MoexSecurity-86"><span class="linenos"> 86</span></a><span class="sd">        Returns</span>
 </span><span id="MoexSecurity-87"><a href="#MoexSecurity-87"><span class="linenos"> 87</span></a><span class="sd">        --------</span>
-</span><span id="MoexSecurity-88"><a href="#MoexSecurity-88"><span class="linenos"> 88</span></a><span class="sd">            pd.DataFrame:</span>
-</span><span id="MoexSecurity-89"><a href="#MoexSecurity-89"><span class="linenos"> 89</span></a><span class="sd">                Quotes as pandas dataframe.</span>
-</span><span id="MoexSecurity-90"><a href="#MoexSecurity-90"><span class="linenos"> 90</span></a><span class="sd">                Columns:</span>
-</span><span id="MoexSecurity-91"><a href="#MoexSecurity-91"><span class="linenos"> 91</span></a><span class="sd">                &#39;TRADEDATE&#39; - date of the quote,</span>
-</span><span id="MoexSecurity-92"><a href="#MoexSecurity-92"><span class="linenos"> 92</span></a><span class="sd">                &#39;OPEN&#39; - open price,</span>
-</span><span id="MoexSecurity-93"><a href="#MoexSecurity-93"><span class="linenos"> 93</span></a><span class="sd">                &#39;HIGH&#39; - high price,</span>
-</span><span id="MoexSecurity-94"><a href="#MoexSecurity-94"><span class="linenos"> 94</span></a><span class="sd">                &#39;LOW&#39; - low price,</span>
-</span><span id="MoexSecurity-95"><a href="#MoexSecurity-95"><span class="linenos"> 95</span></a><span class="sd">                &#39;CLOSE&#39; - last price,</span>
-</span><span id="MoexSecurity-96"><a href="#MoexSecurity-96"><span class="linenos"> 96</span></a><span class="sd">                &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
-</span><span id="MoexSecurity-97"><a href="#MoexSecurity-97"><span class="linenos"> 97</span></a><span class="sd">                &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
-</span><span id="MoexSecurity-98"><a href="#MoexSecurity-98"><span class="linenos"> 98</span></a><span class="sd">                &#39;VALUE&#39; - trading value in rubles,</span>
-</span><span id="MoexSecurity-99"><a href="#MoexSecurity-99"><span class="linenos"> 99</span></a><span class="sd">                &#39;QUANTITY&#39; - trading value in securities.</span>
+</span><span id="MoexSecurity-88"><a href="#MoexSecurity-88"><span class="linenos"> 88</span></a><span class="sd">        pd.DataFrame</span>
+</span><span id="MoexSecurity-89"><a href="#MoexSecurity-89"><span class="linenos"> 89</span></a><span class="sd">            Quotes as pandas dataframe.</span>
+</span><span id="MoexSecurity-90"><a href="#MoexSecurity-90"><span class="linenos"> 90</span></a><span class="sd">            Columns:</span>
+</span><span id="MoexSecurity-91"><a href="#MoexSecurity-91"><span class="linenos"> 91</span></a><span class="sd">            &#39;TRADEDATE&#39; - date of the quote,</span>
+</span><span id="MoexSecurity-92"><a href="#MoexSecurity-92"><span class="linenos"> 92</span></a><span class="sd">            &#39;OPEN&#39; - open price,</span>
+</span><span id="MoexSecurity-93"><a href="#MoexSecurity-93"><span class="linenos"> 93</span></a><span class="sd">            &#39;HIGH&#39; - high price,</span>
+</span><span id="MoexSecurity-94"><a href="#MoexSecurity-94"><span class="linenos"> 94</span></a><span class="sd">            &#39;LOW&#39; - low price,</span>
+</span><span id="MoexSecurity-95"><a href="#MoexSecurity-95"><span class="linenos"> 95</span></a><span class="sd">            &#39;CLOSE&#39; - last price,</span>
+</span><span id="MoexSecurity-96"><a href="#MoexSecurity-96"><span class="linenos"> 96</span></a><span class="sd">            &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
+</span><span id="MoexSecurity-97"><a href="#MoexSecurity-97"><span class="linenos"> 97</span></a><span class="sd">            &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
+</span><span id="MoexSecurity-98"><a href="#MoexSecurity-98"><span class="linenos"> 98</span></a><span class="sd">            &#39;VALUE&#39; - trading value in rubles,</span>
+</span><span id="MoexSecurity-99"><a href="#MoexSecurity-99"><span class="linenos"> 99</span></a><span class="sd">            &#39;QUANTITY&#39; - trading value in securities.</span>
 </span><span id="MoexSecurity-100"><a href="#MoexSecurity-100"><span class="linenos">100</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MoexSecurity-101"><a href="#MoexSecurity-101"><span class="linenos">101</span></a>        <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="MoexSecurity-102"><a href="#MoexSecurity-102"><span class="linenos">102</span></a>        <span class="k">try</span><span class="p">:</span>
@@ -401,32 +401,32 @@
 </span><span id="MoexSecurity-113"><a href="#MoexSecurity-113"><span class="linenos">113</span></a><span class="sd">        </span>
 </span><span id="MoexSecurity-114"><a href="#MoexSecurity-114"><span class="linenos">114</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexSecurity-115"><a href="#MoexSecurity-115"><span class="linenos">115</span></a><span class="sd">        ----------</span>
-</span><span id="MoexSecurity-116"><a href="#MoexSecurity-116"><span class="linenos">116</span></a><span class="sd">            _dtf: date</span>
-</span><span id="MoexSecurity-117"><a href="#MoexSecurity-117"><span class="linenos">117</span></a><span class="sd">                The left bound of the range to request quotes.</span>
-</span><span id="MoexSecurity-118"><a href="#MoexSecurity-118"><span class="linenos">118</span></a><span class="sd">            _dtt: date</span>
-</span><span id="MoexSecurity-119"><a href="#MoexSecurity-119"><span class="linenos">119</span></a><span class="sd">                The right boun of the range to request quotes.</span>
-</span><span id="MoexSecurity-120"><a href="#MoexSecurity-120"><span class="linenos">120</span></a><span class="sd">            _board: str, optional</span>
-</span><span id="MoexSecurity-121"><a href="#MoexSecurity-121"><span class="linenos">121</span></a><span class="sd">                Request quotes for the specific board. The primary board</span>
-</span><span id="MoexSecurity-122"><a href="#MoexSecurity-122"><span class="linenos">122</span></a><span class="sd">                is used if the parameter is ommited. You can check</span>
-</span><span id="MoexSecurity-123"><a href="#MoexSecurity-123"><span class="linenos">123</span></a><span class="sd">                class attribute `boards` to get all available boards.</span>
-</span><span id="MoexSecurity-124"><a href="#MoexSecurity-124"><span class="linenos">124</span></a><span class="sd">            _ts: MoexSessions, optional</span>
-</span><span id="MoexSecurity-125"><a href="#MoexSecurity-125"><span class="linenos">125</span></a><span class="sd">                Request quotes for the specific session. The main session</span>
-</span><span id="MoexSecurity-126"><a href="#MoexSecurity-126"><span class="linenos">126</span></a><span class="sd">                is used if the parameter is ommited.</span>
+</span><span id="MoexSecurity-116"><a href="#MoexSecurity-116"><span class="linenos">116</span></a><span class="sd">        _dtf: date</span>
+</span><span id="MoexSecurity-117"><a href="#MoexSecurity-117"><span class="linenos">117</span></a><span class="sd">            The left bound of the range to request quotes.</span>
+</span><span id="MoexSecurity-118"><a href="#MoexSecurity-118"><span class="linenos">118</span></a><span class="sd">        _dtt: date</span>
+</span><span id="MoexSecurity-119"><a href="#MoexSecurity-119"><span class="linenos">119</span></a><span class="sd">            The right bound of the range to request quotes.</span>
+</span><span id="MoexSecurity-120"><a href="#MoexSecurity-120"><span class="linenos">120</span></a><span class="sd">        _board: str, optional</span>
+</span><span id="MoexSecurity-121"><a href="#MoexSecurity-121"><span class="linenos">121</span></a><span class="sd">            Request quotes for the specific board. The primary board</span>
+</span><span id="MoexSecurity-122"><a href="#MoexSecurity-122"><span class="linenos">122</span></a><span class="sd">            is used if the parameter is ommited. You can check</span>
+</span><span id="MoexSecurity-123"><a href="#MoexSecurity-123"><span class="linenos">123</span></a><span class="sd">            class attribute `boards` to get all available boards.</span>
+</span><span id="MoexSecurity-124"><a href="#MoexSecurity-124"><span class="linenos">124</span></a><span class="sd">        _ts: MoexSessions, optional</span>
+</span><span id="MoexSecurity-125"><a href="#MoexSecurity-125"><span class="linenos">125</span></a><span class="sd">            Request quotes for the specific session. The main session</span>
+</span><span id="MoexSecurity-126"><a href="#MoexSecurity-126"><span class="linenos">126</span></a><span class="sd">            is used if the parameter is ommited.</span>
 </span><span id="MoexSecurity-127"><a href="#MoexSecurity-127"><span class="linenos">127</span></a>
 </span><span id="MoexSecurity-128"><a href="#MoexSecurity-128"><span class="linenos">128</span></a><span class="sd">        Returns</span>
 </span><span id="MoexSecurity-129"><a href="#MoexSecurity-129"><span class="linenos">129</span></a><span class="sd">        --------</span>
-</span><span id="MoexSecurity-130"><a href="#MoexSecurity-130"><span class="linenos">130</span></a><span class="sd">            array_like:</span>
-</span><span id="MoexSecurity-131"><a href="#MoexSecurity-131"><span class="linenos">131</span></a><span class="sd">                Quotes as an array of dicts.</span>
-</span><span id="MoexSecurity-132"><a href="#MoexSecurity-132"><span class="linenos">132</span></a><span class="sd">                Dict keys:</span>
-</span><span id="MoexSecurity-133"><a href="#MoexSecurity-133"><span class="linenos">133</span></a><span class="sd">                &#39;TRADEDATE&#39; - date of the quote,</span>
-</span><span id="MoexSecurity-134"><a href="#MoexSecurity-134"><span class="linenos">134</span></a><span class="sd">                &#39;OPEN&#39; - open price,</span>
-</span><span id="MoexSecurity-135"><a href="#MoexSecurity-135"><span class="linenos">135</span></a><span class="sd">                &#39;HIGH&#39; - high price,</span>
-</span><span id="MoexSecurity-136"><a href="#MoexSecurity-136"><span class="linenos">136</span></a><span class="sd">                &#39;LOW&#39; - low price,</span>
-</span><span id="MoexSecurity-137"><a href="#MoexSecurity-137"><span class="linenos">137</span></a><span class="sd">                &#39;CLOSE&#39; - last price,</span>
-</span><span id="MoexSecurity-138"><a href="#MoexSecurity-138"><span class="linenos">138</span></a><span class="sd">                &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
-</span><span id="MoexSecurity-139"><a href="#MoexSecurity-139"><span class="linenos">139</span></a><span class="sd">                &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
-</span><span id="MoexSecurity-140"><a href="#MoexSecurity-140"><span class="linenos">140</span></a><span class="sd">                &#39;VALUE&#39; - trading value in rubles,</span>
-</span><span id="MoexSecurity-141"><a href="#MoexSecurity-141"><span class="linenos">141</span></a><span class="sd">                &#39;QUANTITY&#39; - trading value in securities.</span>
+</span><span id="MoexSecurity-130"><a href="#MoexSecurity-130"><span class="linenos">130</span></a><span class="sd">        array_like</span>
+</span><span id="MoexSecurity-131"><a href="#MoexSecurity-131"><span class="linenos">131</span></a><span class="sd">            Quotes as an array of dicts.</span>
+</span><span id="MoexSecurity-132"><a href="#MoexSecurity-132"><span class="linenos">132</span></a><span class="sd">            Dict keys:</span>
+</span><span id="MoexSecurity-133"><a href="#MoexSecurity-133"><span class="linenos">133</span></a><span class="sd">            &#39;TRADEDATE&#39; - date of the quote,</span>
+</span><span id="MoexSecurity-134"><a href="#MoexSecurity-134"><span class="linenos">134</span></a><span class="sd">            &#39;OPEN&#39; - open price,</span>
+</span><span id="MoexSecurity-135"><a href="#MoexSecurity-135"><span class="linenos">135</span></a><span class="sd">            &#39;HIGH&#39; - high price,</span>
+</span><span id="MoexSecurity-136"><a href="#MoexSecurity-136"><span class="linenos">136</span></a><span class="sd">            &#39;LOW&#39; - low price,</span>
+</span><span id="MoexSecurity-137"><a href="#MoexSecurity-137"><span class="linenos">137</span></a><span class="sd">            &#39;CLOSE&#39; - last price,</span>
+</span><span id="MoexSecurity-138"><a href="#MoexSecurity-138"><span class="linenos">138</span></a><span class="sd">            &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
+</span><span id="MoexSecurity-139"><a href="#MoexSecurity-139"><span class="linenos">139</span></a><span class="sd">            &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
+</span><span id="MoexSecurity-140"><a href="#MoexSecurity-140"><span class="linenos">140</span></a><span class="sd">            &#39;VALUE&#39; - trading value in rubles,</span>
+</span><span id="MoexSecurity-141"><a href="#MoexSecurity-141"><span class="linenos">141</span></a><span class="sd">            &#39;QUANTITY&#39; - trading value in securities.</span>
 </span><span id="MoexSecurity-142"><a href="#MoexSecurity-142"><span class="linenos">142</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MoexSecurity-143"><a href="#MoexSecurity-143"><span class="linenos">143</span></a>        <span class="n">_res</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="MoexSecurity-144"><a href="#MoexSecurity-144"><span class="linenos">144</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mi</span><span class="p">,</span> <span class="n">MoexImporter</span><span class="p">):</span>
@@ -506,12 +506,12 @@ before.</p>
 </span><span id="MoexSecurity.__init__-19"><a href="#MoexSecurity.__init__-19"><span class="linenos">19</span></a><span class="sd">        </span>
 </span><span id="MoexSecurity.__init__-20"><a href="#MoexSecurity.__init__-20"><span class="linenos">20</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexSecurity.__init__-21"><a href="#MoexSecurity.__init__-21"><span class="linenos">21</span></a><span class="sd">        ----------</span>
-</span><span id="MoexSecurity.__init__-22"><a href="#MoexSecurity.__init__-22"><span class="linenos">22</span></a><span class="sd">            _seccode: str</span>
-</span><span id="MoexSecurity.__init__-23"><a href="#MoexSecurity.__init__-23"><span class="linenos">23</span></a><span class="sd">                Security ticker from MOEX.</span>
-</span><span id="MoexSecurity.__init__-24"><a href="#MoexSecurity.__init__-24"><span class="linenos">24</span></a><span class="sd">            _mi: MoexImporter</span>
-</span><span id="MoexSecurity.__init__-25"><a href="#MoexSecurity.__init__-25"><span class="linenos">25</span></a><span class="sd">                The object of MoexImporter that was</span>
-</span><span id="MoexSecurity.__init__-26"><a href="#MoexSecurity.__init__-26"><span class="linenos">26</span></a><span class="sd">                created before. You can&#39;t use the class</span>
-</span><span id="MoexSecurity.__init__-27"><a href="#MoexSecurity.__init__-27"><span class="linenos">27</span></a><span class="sd">                without this object.</span>
+</span><span id="MoexSecurity.__init__-22"><a href="#MoexSecurity.__init__-22"><span class="linenos">22</span></a><span class="sd">        _seccode: str</span>
+</span><span id="MoexSecurity.__init__-23"><a href="#MoexSecurity.__init__-23"><span class="linenos">23</span></a><span class="sd">            Security ticker from MOEX.</span>
+</span><span id="MoexSecurity.__init__-24"><a href="#MoexSecurity.__init__-24"><span class="linenos">24</span></a><span class="sd">        _mi: MoexImporter</span>
+</span><span id="MoexSecurity.__init__-25"><a href="#MoexSecurity.__init__-25"><span class="linenos">25</span></a><span class="sd">            The object of MoexImporter that was</span>
+</span><span id="MoexSecurity.__init__-26"><a href="#MoexSecurity.__init__-26"><span class="linenos">26</span></a><span class="sd">            created before. You can&#39;t use the class</span>
+</span><span id="MoexSecurity.__init__-27"><a href="#MoexSecurity.__init__-27"><span class="linenos">27</span></a><span class="sd">            without this object.</span>
 </span><span id="MoexSecurity.__init__-28"><a href="#MoexSecurity.__init__-28"><span class="linenos">28</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MoexSecurity.__init__-29"><a href="#MoexSecurity.__init__-29"><span class="linenos">29</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">seccode</span> <span class="o">=</span> <span class="n">_seccode</span>
 </span><span id="MoexSecurity.__init__-30"><a href="#MoexSecurity.__init__-30"><span class="linenos">30</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shortname</span> <span class="o">=</span> <span class="kc">None</span>
@@ -559,15 +559,16 @@ before.</p>
 and loads security-specific information from
 MOEX ISS.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<pre><code>_seccode: str
-    Security ticker from MOEX.
-_mi: MoexImporter
-    The object of MoexImporter that was
-    created before. You can't use the class
-    without this object.
-</code></pre>
+<ul>
+<li><strong>_seccode</strong> (str):
+Security ticker from MOEX.</li>
+<li><strong>_mi</strong> (MoexImporter):
+The object of MoexImporter that was
+created before. You can't use the class
+without this object.</li>
+</ul>
 </div>
 
 
@@ -665,32 +666,32 @@ _mi: MoexImporter
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-71"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-71"><span class="linenos"> 71</span></a><span class="sd">        </span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-72"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-72"><span class="linenos"> 72</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-73"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-73"><span class="linenos"> 73</span></a><span class="sd">        ----------</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-74"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-74"><span class="linenos"> 74</span></a><span class="sd">            _dtf: date</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-75"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-75"><span class="linenos"> 75</span></a><span class="sd">                The left bound of the range to request quotes.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-76"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-76"><span class="linenos"> 76</span></a><span class="sd">            _dtt: date</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-77"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-77"><span class="linenos"> 77</span></a><span class="sd">                The right boun of the range to request quotes.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-78"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-78"><span class="linenos"> 78</span></a><span class="sd">            _board: str, optional</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-79"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-79"><span class="linenos"> 79</span></a><span class="sd">                Request quotes for the specific board. The primary board</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-80"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-80"><span class="linenos"> 80</span></a><span class="sd">                is used if the parameter is ommited. You can check</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-81"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-81"><span class="linenos"> 81</span></a><span class="sd">                class attribute `boards` to get all available boards.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-82"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-82"><span class="linenos"> 82</span></a><span class="sd">            _ts: MoexSessions, optional</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-83"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-83"><span class="linenos"> 83</span></a><span class="sd">                Request quotes for the specific session. The main session</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-84"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-84"><span class="linenos"> 84</span></a><span class="sd">                is used if the parameter is ommited.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-74"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-74"><span class="linenos"> 74</span></a><span class="sd">        _dtf: date</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-75"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-75"><span class="linenos"> 75</span></a><span class="sd">            The left bound of the range to request quotes.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-76"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-76"><span class="linenos"> 76</span></a><span class="sd">        _dtt: date</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-77"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-77"><span class="linenos"> 77</span></a><span class="sd">            The right bound of the range to request quotes.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-78"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-78"><span class="linenos"> 78</span></a><span class="sd">        _board: str, optional</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-79"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-79"><span class="linenos"> 79</span></a><span class="sd">            Request quotes for the specific board. The primary board</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-80"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-80"><span class="linenos"> 80</span></a><span class="sd">            is used if the parameter is ommited. You can check</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-81"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-81"><span class="linenos"> 81</span></a><span class="sd">            class attribute `boards` to get all available boards.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-82"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-82"><span class="linenos"> 82</span></a><span class="sd">        _ts: MoexSessions, optional</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-83"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-83"><span class="linenos"> 83</span></a><span class="sd">            Request quotes for the specific session. The main session</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-84"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-84"><span class="linenos"> 84</span></a><span class="sd">            is used if the parameter is ommited.</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-85"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-85"><span class="linenos"> 85</span></a>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-86"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-86"><span class="linenos"> 86</span></a><span class="sd">        Returns</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-87"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-87"><span class="linenos"> 87</span></a><span class="sd">        --------</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-88"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-88"><span class="linenos"> 88</span></a><span class="sd">            pd.DataFrame:</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-89"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-89"><span class="linenos"> 89</span></a><span class="sd">                Quotes as pandas dataframe.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-90"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-90"><span class="linenos"> 90</span></a><span class="sd">                Columns:</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-91"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-91"><span class="linenos"> 91</span></a><span class="sd">                &#39;TRADEDATE&#39; - date of the quote,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-92"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-92"><span class="linenos"> 92</span></a><span class="sd">                &#39;OPEN&#39; - open price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-93"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-93"><span class="linenos"> 93</span></a><span class="sd">                &#39;HIGH&#39; - high price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-94"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-94"><span class="linenos"> 94</span></a><span class="sd">                &#39;LOW&#39; - low price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-95"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-95"><span class="linenos"> 95</span></a><span class="sd">                &#39;CLOSE&#39; - last price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-96"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-96"><span class="linenos"> 96</span></a><span class="sd">                &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-97"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-97"><span class="linenos"> 97</span></a><span class="sd">                &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-98"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-98"><span class="linenos"> 98</span></a><span class="sd">                &#39;VALUE&#39; - trading value in rubles,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-99"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-99"><span class="linenos"> 99</span></a><span class="sd">                &#39;QUANTITY&#39; - trading value in securities.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-88"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-88"><span class="linenos"> 88</span></a><span class="sd">        pd.DataFrame</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-89"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-89"><span class="linenos"> 89</span></a><span class="sd">            Quotes as pandas dataframe.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-90"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-90"><span class="linenos"> 90</span></a><span class="sd">            Columns:</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-91"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-91"><span class="linenos"> 91</span></a><span class="sd">            &#39;TRADEDATE&#39; - date of the quote,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-92"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-92"><span class="linenos"> 92</span></a><span class="sd">            &#39;OPEN&#39; - open price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-93"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-93"><span class="linenos"> 93</span></a><span class="sd">            &#39;HIGH&#39; - high price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-94"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-94"><span class="linenos"> 94</span></a><span class="sd">            &#39;LOW&#39; - low price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-95"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-95"><span class="linenos"> 95</span></a><span class="sd">            &#39;CLOSE&#39; - last price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-96"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-96"><span class="linenos"> 96</span></a><span class="sd">            &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-97"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-97"><span class="linenos"> 97</span></a><span class="sd">            &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-98"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-98"><span class="linenos"> 98</span></a><span class="sd">            &#39;VALUE&#39; - trading value in rubles,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-99"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-99"><span class="linenos"> 99</span></a><span class="sd">            &#39;QUANTITY&#39; - trading value in securities.</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-100"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-100"><span class="linenos">100</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-101"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-101"><span class="linenos">101</span></a>        <span class="n">_res</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsDataFrame-102"><a href="#MoexSecurity.getHistoryQuotesAsDataFrame-102"><span class="linenos">102</span></a>        <span class="k">try</span><span class="p">:</span>
@@ -706,36 +707,37 @@ _mi: MoexImporter
 
             <div class="docstring"><p>Returns quotes for the security as a pandas dataframe.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<pre><code>_dtf: date
-    The left bound of the range to request quotes.
-_dtt: date
-    The right boun of the range to request quotes.
-_board: str, optional
-    Request quotes for the specific board. The primary board
-    is used if the parameter is ommited. You can check
-    class attribute `boards` to get all available boards.
-_ts: MoexSessions, optional
-    Request quotes for the specific session. The main session
-    is used if the parameter is ommited.
-</code></pre>
+<ul>
+<li><strong>_dtf</strong> (date):
+The left bound of the range to request quotes.</li>
+<li><strong>_dtt</strong> (date):
+The right bound of the range to request quotes.</li>
+<li><strong>_board</strong> (str, optional):
+Request quotes for the specific board. The primary board
+is used if the parameter is ommited. You can check
+class attribute <code><a href="#MoexSecurity.boards">boards</a></code> to get all available boards.</li>
+<li><strong>_ts</strong> (MoexSessions, optional):
+Request quotes for the specific session. The main session
+is used if the parameter is ommited.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<pre><code>pd.DataFrame:
-    Quotes as pandas dataframe.
-    Columns:
-    'TRADEDATE' - date of the quote,
-    'OPEN' - open price,
-    'HIGH' - high price,
-    'LOW' - low price,
-    'CLOSE' - last price,
-    'YIELD' - yield to maturity, may be None for non-bonds,
-    'DURATION' - duration in days, may be None for non-bonds,
-    'VALUE' - trading value in rubles,
-    'QUANTITY' - trading value in securities.
-</code></pre>
+<ul>
+<li><strong>pd.DataFrame</strong>: Quotes as pandas dataframe.
+Columns:
+'TRADEDATE' - date of the quote,
+'OPEN' - open price,
+'HIGH' - high price,
+'LOW' - low price,
+'CLOSE' - last price,
+'YIELD' - yield to maturity, may be None for non-bonds,
+'DURATION' - duration in days, may be None for non-bonds,
+'VALUE' - trading value in rubles,
+'QUANTITY' - trading value in securities.</li>
+</ul>
 </div>
 
 
@@ -756,32 +758,32 @@ _ts: MoexSessions, optional
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-113"><a href="#MoexSecurity.getHistoryQuotesAsArray-113"><span class="linenos">113</span></a><span class="sd">        </span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-114"><a href="#MoexSecurity.getHistoryQuotesAsArray-114"><span class="linenos">114</span></a><span class="sd">        Parameters</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-115"><a href="#MoexSecurity.getHistoryQuotesAsArray-115"><span class="linenos">115</span></a><span class="sd">        ----------</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-116"><a href="#MoexSecurity.getHistoryQuotesAsArray-116"><span class="linenos">116</span></a><span class="sd">            _dtf: date</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-117"><a href="#MoexSecurity.getHistoryQuotesAsArray-117"><span class="linenos">117</span></a><span class="sd">                The left bound of the range to request quotes.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-118"><a href="#MoexSecurity.getHistoryQuotesAsArray-118"><span class="linenos">118</span></a><span class="sd">            _dtt: date</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-119"><a href="#MoexSecurity.getHistoryQuotesAsArray-119"><span class="linenos">119</span></a><span class="sd">                The right boun of the range to request quotes.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-120"><a href="#MoexSecurity.getHistoryQuotesAsArray-120"><span class="linenos">120</span></a><span class="sd">            _board: str, optional</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-121"><a href="#MoexSecurity.getHistoryQuotesAsArray-121"><span class="linenos">121</span></a><span class="sd">                Request quotes for the specific board. The primary board</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-122"><a href="#MoexSecurity.getHistoryQuotesAsArray-122"><span class="linenos">122</span></a><span class="sd">                is used if the parameter is ommited. You can check</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-123"><a href="#MoexSecurity.getHistoryQuotesAsArray-123"><span class="linenos">123</span></a><span class="sd">                class attribute `boards` to get all available boards.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-124"><a href="#MoexSecurity.getHistoryQuotesAsArray-124"><span class="linenos">124</span></a><span class="sd">            _ts: MoexSessions, optional</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-125"><a href="#MoexSecurity.getHistoryQuotesAsArray-125"><span class="linenos">125</span></a><span class="sd">                Request quotes for the specific session. The main session</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-126"><a href="#MoexSecurity.getHistoryQuotesAsArray-126"><span class="linenos">126</span></a><span class="sd">                is used if the parameter is ommited.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-116"><a href="#MoexSecurity.getHistoryQuotesAsArray-116"><span class="linenos">116</span></a><span class="sd">        _dtf: date</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-117"><a href="#MoexSecurity.getHistoryQuotesAsArray-117"><span class="linenos">117</span></a><span class="sd">            The left bound of the range to request quotes.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-118"><a href="#MoexSecurity.getHistoryQuotesAsArray-118"><span class="linenos">118</span></a><span class="sd">        _dtt: date</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-119"><a href="#MoexSecurity.getHistoryQuotesAsArray-119"><span class="linenos">119</span></a><span class="sd">            The right bound of the range to request quotes.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-120"><a href="#MoexSecurity.getHistoryQuotesAsArray-120"><span class="linenos">120</span></a><span class="sd">        _board: str, optional</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-121"><a href="#MoexSecurity.getHistoryQuotesAsArray-121"><span class="linenos">121</span></a><span class="sd">            Request quotes for the specific board. The primary board</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-122"><a href="#MoexSecurity.getHistoryQuotesAsArray-122"><span class="linenos">122</span></a><span class="sd">            is used if the parameter is ommited. You can check</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-123"><a href="#MoexSecurity.getHistoryQuotesAsArray-123"><span class="linenos">123</span></a><span class="sd">            class attribute `boards` to get all available boards.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-124"><a href="#MoexSecurity.getHistoryQuotesAsArray-124"><span class="linenos">124</span></a><span class="sd">        _ts: MoexSessions, optional</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-125"><a href="#MoexSecurity.getHistoryQuotesAsArray-125"><span class="linenos">125</span></a><span class="sd">            Request quotes for the specific session. The main session</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-126"><a href="#MoexSecurity.getHistoryQuotesAsArray-126"><span class="linenos">126</span></a><span class="sd">            is used if the parameter is ommited.</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-127"><a href="#MoexSecurity.getHistoryQuotesAsArray-127"><span class="linenos">127</span></a>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-128"><a href="#MoexSecurity.getHistoryQuotesAsArray-128"><span class="linenos">128</span></a><span class="sd">        Returns</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-129"><a href="#MoexSecurity.getHistoryQuotesAsArray-129"><span class="linenos">129</span></a><span class="sd">        --------</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-130"><a href="#MoexSecurity.getHistoryQuotesAsArray-130"><span class="linenos">130</span></a><span class="sd">            array_like:</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-131"><a href="#MoexSecurity.getHistoryQuotesAsArray-131"><span class="linenos">131</span></a><span class="sd">                Quotes as an array of dicts.</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-132"><a href="#MoexSecurity.getHistoryQuotesAsArray-132"><span class="linenos">132</span></a><span class="sd">                Dict keys:</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-133"><a href="#MoexSecurity.getHistoryQuotesAsArray-133"><span class="linenos">133</span></a><span class="sd">                &#39;TRADEDATE&#39; - date of the quote,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-134"><a href="#MoexSecurity.getHistoryQuotesAsArray-134"><span class="linenos">134</span></a><span class="sd">                &#39;OPEN&#39; - open price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-135"><a href="#MoexSecurity.getHistoryQuotesAsArray-135"><span class="linenos">135</span></a><span class="sd">                &#39;HIGH&#39; - high price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-136"><a href="#MoexSecurity.getHistoryQuotesAsArray-136"><span class="linenos">136</span></a><span class="sd">                &#39;LOW&#39; - low price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-137"><a href="#MoexSecurity.getHistoryQuotesAsArray-137"><span class="linenos">137</span></a><span class="sd">                &#39;CLOSE&#39; - last price,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-138"><a href="#MoexSecurity.getHistoryQuotesAsArray-138"><span class="linenos">138</span></a><span class="sd">                &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-139"><a href="#MoexSecurity.getHistoryQuotesAsArray-139"><span class="linenos">139</span></a><span class="sd">                &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-140"><a href="#MoexSecurity.getHistoryQuotesAsArray-140"><span class="linenos">140</span></a><span class="sd">                &#39;VALUE&#39; - trading value in rubles,</span>
-</span><span id="MoexSecurity.getHistoryQuotesAsArray-141"><a href="#MoexSecurity.getHistoryQuotesAsArray-141"><span class="linenos">141</span></a><span class="sd">                &#39;QUANTITY&#39; - trading value in securities.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-130"><a href="#MoexSecurity.getHistoryQuotesAsArray-130"><span class="linenos">130</span></a><span class="sd">        array_like</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-131"><a href="#MoexSecurity.getHistoryQuotesAsArray-131"><span class="linenos">131</span></a><span class="sd">            Quotes as an array of dicts.</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-132"><a href="#MoexSecurity.getHistoryQuotesAsArray-132"><span class="linenos">132</span></a><span class="sd">            Dict keys:</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-133"><a href="#MoexSecurity.getHistoryQuotesAsArray-133"><span class="linenos">133</span></a><span class="sd">            &#39;TRADEDATE&#39; - date of the quote,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-134"><a href="#MoexSecurity.getHistoryQuotesAsArray-134"><span class="linenos">134</span></a><span class="sd">            &#39;OPEN&#39; - open price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-135"><a href="#MoexSecurity.getHistoryQuotesAsArray-135"><span class="linenos">135</span></a><span class="sd">            &#39;HIGH&#39; - high price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-136"><a href="#MoexSecurity.getHistoryQuotesAsArray-136"><span class="linenos">136</span></a><span class="sd">            &#39;LOW&#39; - low price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-137"><a href="#MoexSecurity.getHistoryQuotesAsArray-137"><span class="linenos">137</span></a><span class="sd">            &#39;CLOSE&#39; - last price,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-138"><a href="#MoexSecurity.getHistoryQuotesAsArray-138"><span class="linenos">138</span></a><span class="sd">            &#39;YIELD&#39; - yield to maturity, may be None for non-bonds,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-139"><a href="#MoexSecurity.getHistoryQuotesAsArray-139"><span class="linenos">139</span></a><span class="sd">            &#39;DURATION&#39; - duration in days, may be None for non-bonds,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-140"><a href="#MoexSecurity.getHistoryQuotesAsArray-140"><span class="linenos">140</span></a><span class="sd">            &#39;VALUE&#39; - trading value in rubles,</span>
+</span><span id="MoexSecurity.getHistoryQuotesAsArray-141"><a href="#MoexSecurity.getHistoryQuotesAsArray-141"><span class="linenos">141</span></a><span class="sd">            &#39;QUANTITY&#39; - trading value in securities.</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-142"><a href="#MoexSecurity.getHistoryQuotesAsArray-142"><span class="linenos">142</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-143"><a href="#MoexSecurity.getHistoryQuotesAsArray-143"><span class="linenos">143</span></a>        <span class="n">_res</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="MoexSecurity.getHistoryQuotesAsArray-144"><a href="#MoexSecurity.getHistoryQuotesAsArray-144"><span class="linenos">144</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mi</span><span class="p">,</span> <span class="n">MoexImporter</span><span class="p">):</span>
@@ -828,36 +830,37 @@ _ts: MoexSessions, optional
 
             <div class="docstring"><p>Returns quotes for the security as an array of dicts.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<pre><code>_dtf: date
-    The left bound of the range to request quotes.
-_dtt: date
-    The right boun of the range to request quotes.
-_board: str, optional
-    Request quotes for the specific board. The primary board
-    is used if the parameter is ommited. You can check
-    class attribute `boards` to get all available boards.
-_ts: MoexSessions, optional
-    Request quotes for the specific session. The main session
-    is used if the parameter is ommited.
-</code></pre>
+<ul>
+<li><strong>_dtf</strong> (date):
+The left bound of the range to request quotes.</li>
+<li><strong>_dtt</strong> (date):
+The right bound of the range to request quotes.</li>
+<li><strong>_board</strong> (str, optional):
+Request quotes for the specific board. The primary board
+is used if the parameter is ommited. You can check
+class attribute <code><a href="#MoexSecurity.boards">boards</a></code> to get all available boards.</li>
+<li><strong>_ts</strong> (MoexSessions, optional):
+Request quotes for the specific session. The main session
+is used if the parameter is ommited.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<pre><code>array_like:
-    Quotes as an array of dicts.
-    Dict keys:
-    'TRADEDATE' - date of the quote,
-    'OPEN' - open price,
-    'HIGH' - high price,
-    'LOW' - low price,
-    'CLOSE' - last price,
-    'YIELD' - yield to maturity, may be None for non-bonds,
-    'DURATION' - duration in days, may be None for non-bonds,
-    'VALUE' - trading value in rubles,
-    'QUANTITY' - trading value in securities.
-</code></pre>
+<ul>
+<li><strong>array_like</strong>: Quotes as an array of dicts.
+Dict keys:
+'TRADEDATE' - date of the quote,
+'OPEN' - open price,
+'HIGH' - high price,
+'LOW' - low price,
+'CLOSE' - last price,
+'YIELD' - yield to maturity, may be None for non-bonds,
+'DURATION' - duration in days, may be None for non-bonds,
+'VALUE' - trading value in rubles,
+'QUANTITY' - trading value in securities.</li>
+</ul>
 </div>
 
 
