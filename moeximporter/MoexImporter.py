@@ -261,7 +261,7 @@ class MoexImporter:
         Returns
         -------
         array_like
-            List of specific data for _seccode.
+            List of specific data for `_seccode`.
         """
         _res = None
         try:
