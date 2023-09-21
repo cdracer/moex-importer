@@ -9,6 +9,8 @@ You should refer to MOEX's official documents for terms of use the market data.
 
 The package allows to get quotes and data from [MOEX ISS](https://iss.moex.com/iss/reference/) interface over HTTPS.
 
+[API docs](https://github.com/cdracer/moex-importer/wiki/Documentation) for moeximporter.
+
 ## Installation
 Install `moeximporter`:
 
