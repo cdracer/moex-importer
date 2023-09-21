@@ -1,4 +1,4 @@
-# Project desctiption
+# Project description
 
 ## Disclaimer
 This project is **not affilliated** with [MOEX](https://www.moex.com).
