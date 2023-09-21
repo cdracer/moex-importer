@@ -1,7 +1,7 @@
 # Project description
 
 ## Important
-**Arguments naming has been changed.**
+**! Arguments' naming has been changed. !**
 
 ## Disclaimer
 This project is **not affilliated** with [MOEX](https://www.moex.com).
@@ -69,10 +69,10 @@ quotes_df = sec.getHistoryQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20))
 quotes_arr = sec.getHistoryQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20))
 
 # Request candles as a pandas DataFrame
-candles_df = sec.getCandleQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20), _interval=MoexCandlePeriods.Period1Hour)
+candles_df = sec.getCandleQuotesAsDataFrame(date(2023, 5, 1), date(2023, 9, 20), interval=MoexCandlePeriods.Period1Hour)
 
 # Request candles as an array of dicts
-candles_arr = sec.getCandleQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20), _interval=MoexCandlePeriods.Period1Hour)
+candles_arr = sec.getCandleQuotesAsArray(date(2023, 5, 1), date(2023, 9, 20), interval=MoexCandlePeriods.Period1Hour)
 
 ```
 ## Licensing
