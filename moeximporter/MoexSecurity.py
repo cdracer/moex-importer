@@ -84,7 +84,7 @@ class MoexSecurity:
                             if _si['name'] == 'REGNUMBER':
                                 self.regnumber = _si['value']
                             if _si['name'] == 'EMITTER_ID':
-                                self.issuer = _si['value']
+                                self.issuerid = _si['value']
                             if _si['name'] == 'ISSUEDATE':
                                 try:
                                     self.issuedate = datetime.strptime(_si['value'], '%Y-%m-%d').date()
