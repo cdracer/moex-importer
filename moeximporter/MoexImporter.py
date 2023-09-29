@@ -9,10 +9,10 @@ from ._MoexRequests import _MoexRequests
 
 class MoexImporter:
     """Class MoexImporter implements https-queries to MOEX ISS API.
-    You should to create at least one instance to work with other objects in the package. \ \
+    You should to create at least one instance to work with other objects in the package.  
     
     Base methods allow to get generic information about available engines and markets,
-    request securities lists and quotes. \ \
+    request securities lists and quotes.  
     
     Quotes requests are wrapped in the MoexSecurity class to improve convenience.
     """

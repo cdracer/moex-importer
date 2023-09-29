@@ -30,6 +30,18 @@ class MoexSecurity:
         self.seccode = seccode
         """Ticker of the security.
         """
+        self.isin = None
+        """ISIN of the security.
+        """
+        self.regnumber = None
+        """Regnumber of the security.
+        """
+        self.issuedate = None
+        """Issue date of the security.
+        """
+        self.matdate = None
+        """Maturity date of the security.
+        """
         self.shortname = None
         """Shortname of the security.
         """
@@ -38,9 +50,15 @@ class MoexSecurity:
         """     
         self.facecurrency = None
         """Facecurrency of the security.
-        """  
+        """
+        self.initialfacevalue = None
+        """Initial facevalue of the security.
+        """
         self.facevalue = None
         """Facevalue of the security.
+        """
+        self.issuerid = None
+        """If of the issuer.
         """
         self.mi = mi
         """MoexImporter object.
@@ -54,12 +72,31 @@ class MoexSecurity:
                 if 'description' in _ti:
                     _sd = _ti['description']
                     for _si in _sd:
-                        if _si['name'] == 'SHORTNAME':
-                            self.shortname = _si['value']
-                        if _si['name'] == 'FACEVALUE':
-                            self.facevalue = _si['value']
-                        if _si['name'] == 'FACEUNIT':
-                            self.facecurrency = _si['value']
+                        if (_si['name']) and (_si['value']):
+                            if _si['name'] == 'SHORTNAME':
+                                self.shortname = _si['value']
+                            if _si['name'] == 'FACEVALUE':
+                                self.facevalue = _si['value']
+                            if _si['name'] == 'FACEUNIT':
+                                self.facecurrency = _si['value']
+                            if _si['name'] == 'ISIN':
+                                self.isin = _si['value']
+                            if _si['name'] == 'REGNUMBER':
+                                self.regnumber = _si['value']
+                            if _si['name'] == 'EMITTER_ID':
+                                self.issuer = _si['value']
+                            if _si['name'] == 'ISSUEDATE':
+                                try:
+                                    self.issuedate = datetime.strptime(_si['value'], '%Y-%m-%d').date()
+                                except Exception as e:
+                                    print('MoexSecurity::__init__(): wrong issue date. ', e)
+                            if _si['name'] == 'MATDATE':
+                                try:
+                                    self.matdate = datetime.strptime(_si['value'], '%Y-%m-%d').date()
+                                except Exception as e:
+                                    print('MoexSecurity::__init__(): wrong maturity date. ', e)
+                            if _si['name'] == 'INITIALFACEVALUE':
+                                self.initialfacevalue = _si['value']
                 if 'boards' in _ti:
                     _sb = _ti['boards']
                     for _bi in _sb:
@@ -309,7 +346,13 @@ class MoexSecurity:
             
     def __str__(self):
         _res = f'''
-Security {self.seccode:s}
+Security {self.seccode:s} ({self.shortname:s})
+'''
+        if self.issuedate:
+            _res += f'Issued: {self.issuedate:%Y-%m-%d}'
+        if self.matdate:
+            _res += f'maturity: {self.matdate:%Y-%m-%d}\n'
+        _res += f'''
 Main board: {self.mainboard:s} ({self.boards[self.mainboard]["title"]})
 Engine: {self.boards[self.mainboard]["engine"]}
 Market: {self.boards[self.mainboard]["market"]}

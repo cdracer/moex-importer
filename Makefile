@@ -1,6 +1,6 @@
 .PHONY: deploy build
 
-deploy: build commit
+deploy: build
 
 build:
 	rm -f dist/*

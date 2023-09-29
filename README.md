@@ -1,7 +1,7 @@
 # Project description
 
 ## Important
-**! Arguments' naming has been changed. !**
+**! Arguments' naming has been changed since 0.1.x release. !**
 
 ## Disclaimer
 This project is **not affilliated** with [MOEX](https://www.moex.com).
