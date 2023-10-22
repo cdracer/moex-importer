@@ -89,12 +89,12 @@ class MoexSecurity:
                                 try:
                                     self.issuedate = datetime.strptime(_si['value'], '%Y-%m-%d').date()
                                 except Exception as e:
-                                    print('MoexSecurity::__init__(): wrong issue date. ', e)
+                                    print('MoexSecurity::__init__(): wrong issue date. ', e, file=sys.stderr)
                             if _si['name'] == 'MATDATE':
                                 try:
                                     self.matdate = datetime.strptime(_si['value'], '%Y-%m-%d').date()
                                 except Exception as e:
-                                    print('MoexSecurity::__init__(): wrong maturity date. ', e)
+                                    print('MoexSecurity::__init__(): wrong maturity date. ', e, file=sys.stderr)
                             if _si['name'] == 'INITIALFACEVALUE':
                                 self.initialfacevalue = _si['value']
                 if 'boards' in _ti:
@@ -222,7 +222,7 @@ class MoexSecurity:
                                 {
                                     ('VALUE' if _k =='VOLRUR' else 'QUANTITY' if _k == 'VOLUME' else 'YIELD' if _k == 'YIELDCLOSE' else _k): (datetime.strptime(_sq[_k], '%Y-%m-%d').date() if _k == 'TRADEDATE' else _sq[_k])
                                     for _k in _sq
-                                    if _k in ['TRADEDATE', 'OPEN', 'HIGH', 'LOW', 'CLOSE', 'YIELD', 'DURATION', 'YIELDCLOSE', 'VOLUME', 'VALUE', 'WAPRICE', 'VOLRUR']
+                                    if _k in ['TRADEDATE', 'OPEN', 'HIGH', 'LOW', 'CLOSE', 'YIELD', 'DURATION', 'YIELDCLOSE', 'VOLUME', 'VALUE', 'WAPRICE', 'VOLRUR', 'FACEVALUE', 'ACCINT']
                                 } for _sq in _ti['history']
                             ]
                             _st += self.mi.limit
